@@ -36,24 +36,14 @@ The challenge is that achieving reproducibility requires intentional effort thro
 ### Creating Reproducible Workflows
 {% endif %}
 
+:::{admonition} Reproducibility vs. Replicability
+:class: margin
+**Reproducibility**: Same results with same data/code  
+**Replicability**: Consistent findings with new data/independent study
+:::
+
 {% if slide %}
 **Many factors affect whether work can be reproduced**
-
-:::::{grid} 2
-::::{grid-item-card} Documentation Challenges
-- What steps were performed?
-- In what order?
-- With what parameters?
-- How were edge cases handled?
-::::
-
-::::{grid-item-card} Workflow Design
-- Manual steps are hard to reproduce
-- Undocumented decisions create ambiguity
-- Implicit dependencies may not be obvious
-::::
-:::::
-
 **Best practices require effort:**
 - Automated pipelines instead of manual steps
 - Explicit parameter documentation
@@ -94,21 +84,6 @@ Reproducible workflows favor automation, explicit configuration, and determinist
 
 {% if slide %}
 **Software and hardware environments critically affect results**
-
-:::::{grid} 1 1 2 2
-::::{grid-item-card} Software Variability
-- Library versions produce different results
-- OS differences affect behavior
-- Compiler optimizations change outputs
-- Cascading dependency versions
-::::
-
-::::{grid-item-card} Hardware Variability
-- Architecture-specific floating-point ops
-- GPU vs CPU implementation differences
-- Optimization levels affect outcomes
-::::
-:::::
 
 :::{admonition} "It Works on My Machine"
 :class: warning
@@ -152,29 +127,13 @@ Perfect bit-for-bit reproducibility across all hardware is often not achievable.
 
 {% if slide %}
 **Results depend on data—but sharing is complex**
-
-:::::{grid} 1 1 2 2
-::::{grid-item-card} Sharing Barriers
-- Large datasets (storage/bandwidth)
-- Privacy & proprietary constraints
-- Missing preprocessing documentation
-- Pre-trained models hide training data
-::::
-
-::::{grid-item-card} Impact on Reproducibility
-- Cannot validate results
-- Cannot extend methods
-- Hidden data biases & assumptions
-::::
-:::::
-
 **Mitigation strategies:**
-:::{div} sd-fs-5
+
 ✓ Share subsets or synthetic data  
 ✓ Document data characteristics  
 ✓ Provide preprocessing code  
 ✓ Describe model training data properties
-:::
+
 {% endif %}
 
 {% if page %}
