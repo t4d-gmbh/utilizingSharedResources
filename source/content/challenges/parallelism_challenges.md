@@ -5,18 +5,20 @@
 {% endif %}
 
 {% if slide %}
-**Scientific computing often involves many related tasks**
+::::{tab-set}
+:::{tab-item} Common Patterns
+- Same analysis, multiple datasets
+- Parameter sweeps
+- Ensemble simulations
+- Independent pipeline stages
+:::
 
-**Common patterns:**
-- Running the same analysis on multiple datasets
-- Parameter sweeps exploring different configurations
-- Ensemble simulations with varied initial conditions
-- Pipeline stages that can run independently
-
-**Why this is challenging:**
+:::{tab-item} The Challenge
 - Manual execution doesn't scale
-- Dependencies between tasks require coordination
-- Resource allocation needs optimization
+- Task dependencies need coordination
+- Resource allocation optimization
+:::
+::::
 {% endif %}
 
 :::{admonition} Ensemble Learning
@@ -48,28 +50,21 @@ Manual execution of multiple tasks quickly becomes impractical. Managing dozens 
 {% endif %}
 
 {% if slide %}
-**Parallelism can dramatically reduce wall-clock time**
-
 :::::{grid} 2
-::::{grid-item-card} The Opportunity
-- Multiple CPU cores sit idle if not used
-- Many tasks are independent and can run simultaneously
-- Potential for significant speedups
+::::{grid-item-card} ✓ Opportunity
+- Idle cores await tasks
+- Independent tasks run simultaneously
+- Significant speedup potential
 ::::
 
-::::{grid-item-card} The Challenges
-- Code must be written to support parallelism
-- Data access patterns must avoid conflicts
-- Synchronization and communication add overhead
+::::{grid-item-card} ✗ Challenges
+- Code must support parallelism
+- Avoid data conflicts
+- Overhead costs
 ::::
 :::::
 
-:::{admonition} Not All Parallelism Is Equal
-:class: note
-- **Embarrassingly parallel**: Independent tasks (easiest)
-- **Shared memory**: Threads within one machine (moderate complexity)  
-- **Distributed**: Across multiple machines (most complex)
-:::
+**Parallelism Types:** Embarrassingly parallel → Shared memory → Distributed
 {% endif %}
 
 {% if page %}
@@ -113,18 +108,25 @@ Each level introduces more complexity but potentially enables larger-scale compu
 {% endif %}
 
 {% if slide %}
-**Parallelism creates data management complexity**
+:::::{grid} 2
+::::{grid-item}
+**Data Challenges**
 
-**Key challenges:**
-- **Race conditions**: Multiple processes trying to write the same file
-- **Data consistency**: Ensuring all workers see the same data state
-- **Output organization**: Collecting and organizing results from many parallel tasks
-- **Intermediate data**: Where to store temporary results from parallel stages
+- Race conditions
+- Data consistency
+- Output organization
+- Intermediate storage
+::::
 
-**Workflow orchestration:**
-- Task dependencies require careful scheduling
-- Failures in parallel tasks need detection and handling
-- Resource allocation must balance parallelism with available capacity
+::::{grid-item}
+**Workflow Orchestration**
+
+- Task scheduling
+- Failure handling
+- Resource allocation
+- Progress tracking
+::::
+:::::
 {% endif %}
 
 {% if page %}
