@@ -2,6 +2,7 @@
 :maxdepth: {% if build == "slides" %}1{% else %}4{% endif %}
 :caption: Utilizing Shared Resources
 
+challenges/index
 howto/index
 examples/index
 ```
