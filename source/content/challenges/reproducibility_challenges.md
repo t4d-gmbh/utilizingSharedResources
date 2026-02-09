@@ -42,6 +42,12 @@ The challenge is that achieving reproducibility requires intentional effort thro
 **Replicability**: Consistent findings with new data/independent study
 :::
 
+:::{admonition} Reproducibility vs. Replicability
+:class: margin
+**Reproducibility**: Same results with same data/code  
+**Replicability**: Consistent findings with new data/independent study
+:::
+
 {% if slide %}
 **Many factors affect whether work can be reproduced**
 **Best practices require effort:**
