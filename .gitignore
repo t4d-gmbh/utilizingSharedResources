@@ -3,3 +3,6 @@
 docs/
 *.nix
 venv/
+lib/
+lib64
+build.sh
