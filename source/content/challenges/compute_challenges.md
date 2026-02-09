@@ -5,19 +5,17 @@
 {% endif %}
 
 {% if slide %}
-**Processing power has physical and practical limits**
-
 :::::{grid} 2
 ::::{grid-item-card} CPU Limitations
-- Clock speed plateaued years ago
-- Single-threaded performance has diminishing returns
-- Most gains now come from parallelization
+- Clock speed plateaued (~2005)
+- Single-threaded gains diminishing
+- Parallelization is key
 ::::
 
 ::::{grid-item-card} GPU Constraints
-- Specialized for parallel workloads
-- Limited availability and high cost
-- Not all problems benefit from GPU acceleration
+- Massive parallelism for suitable workloads
+- High cost, limited availability
+- Not all algorithms benefit
 ::::
 :::::
 {% endif %}
@@ -55,19 +53,23 @@ The economic reality: compute resources are finite and must be shared across man
 {% endif %}
 
 {% if slide %}
-**Some problems require specific hardware architectures**
+:::::{grid} 2
+::::{grid-item}
+**Hardware Needs**
 
-:::{admonition} Hardware Specialization
-:class: tip
-- Machine learning: Tensor cores, TPUs
-- Scientific simulation: High-memory systems, fast interconnects
-- Data processing: High I/O bandwidth
-:::
+- ML: Tensor cores, TPUs
+- Simulation: High memory, fast interconnects
+- Data: High I/O bandwidth
+::::
 
-**The challenge:**
-- Specialized hardware is expensive to acquire and maintain
-- Limited availability means queuing and scheduling
-- Code may not be portable across different architectures
+::::{grid-item}
+**The Challenge**
+
+- Expensive to acquire
+- Limited availability
+- Code portability issues
+::::
+:::::
 {% endif %}
 
 {% if page %}
@@ -89,18 +91,20 @@ Researchers must balance the performance benefits of specialized hardware agains
 {% endif %}
 
 {% if slide %}
-**Many scientific computations require hours, days, or weeks**
+:::::{grid} 2
+::::{grid-item-card} Why So Slow?
+- Non-linear complexity (O(n²), O(n³))
+- Iterative convergence
+- Parameter sweeps, Monte Carlo
+::::
 
-**Why runtimes are long:**
-- Problem complexity scales non-linearly (O(n²), O(n³), worse)
-- High-accuracy simulations require many iterations
-- Parameter searches or Monte Carlo methods need many repetitions
-
-**Practical implications:**
-- Interactive development becomes difficult
-- Failures are costly (lost time, wasted resources)
-- Debugging requires different strategies
-- Results aren't available when you need them
+::::{grid-item-card} Impact
+- No interactive development
+- Costly failures
+- Different debugging strategies
+- Planning overhead
+::::
+:::::
 {% endif %}
 
 :::{admonition} Big O Notation
