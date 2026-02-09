@@ -2,11 +2,10 @@
 # Challenges in Computational Projects
 
 ```{toctree}
-:maxdepth: 1
-:numbered:
+:maxdepth: 3
 
 ./intro
-./storage_challenges
+./storage/index
 ./compute_challenges
 ./parallelism_challenges
 ./reproducibility_challenges
@@ -22,7 +21,16 @@ Understanding these challenges provides context for the tools and approaches cov
 ```{include} ./intro.md
 ```
 
-```{include} ./storage_challenges.md
+```{include} ./storage/intro.md
+```
+
+```{include} ./storage/quotas.md
+```
+
+```{include} ./storage/data_movement.md
+```
+
+```{include} ./storage/large_datasets.md
 ```
 
 ```{include} ./compute_challenges.md
