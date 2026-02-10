@@ -3,6 +3,7 @@
 :caption: Utilizing Shared Resources
 
 challenges/index
+primerOnParallelism/index
 howto/index
 examples/index
 ```
