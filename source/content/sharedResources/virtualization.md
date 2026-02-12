@@ -35,7 +35,7 @@ Instead of writing code that only runs on your specific laptop's hardware config
 
 {% endif %}
 
-{% if slide %}::{card}{% else %}###{% endif %} <i class="fas fa-check-circle"></i> Core Benefits
+{% if slide %}:::{card}{% else %}###{% endif %} <i class="fas fa-check-circle"></i> Core Benefits
 {% if slide %}
 1.  **Resource Efficiency**: Utilization of physical hardware increases drastically.
 2.  **Isolation**: A crash in one VM does not affect others or the host.
@@ -95,6 +95,7 @@ They abstract the guest operating system from the host operating system.
 * **Use Case**: Testing a Linux workflow on your personal MacBook using VirtualBox before deploying it to the cluster.
 
 ### VMs vs. Containers
+{% endif %}
 
 
 {% if slide %}
