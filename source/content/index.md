@@ -4,6 +4,7 @@
 
 challenges/index
 terminology/index
+sharedResources/index
 howto/index
 examples/index
 ```
