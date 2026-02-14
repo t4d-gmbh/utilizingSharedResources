@@ -17,6 +17,8 @@
 
 The first **stored-program** computer: the Mark 1
 
+_used decimal not binary (wrong on image)_
+
 :::
 ::::
 
