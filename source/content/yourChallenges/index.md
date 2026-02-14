@@ -3,23 +3,14 @@
 
 {% if slides %}
 <!-- BUILDING THE SLIDES -->
-```{toctree}
-:maxdepth: 3
 
-<!-- ./someFile -->
-<!-- ./someFolder/index -->
-```
+## <i class="fa-solid fa-users"></i> What Challenges Do We Share?
+
+Share computing challenges from your projects  
+*(resource limitations • compute power/time • data movement • task parallelism • reproducibility • environment consistency • workflow documentation)*
 
 {% else %}
 <!-- BUILDING THE PAGES -->
-
-<!--
-```{include} ./multiTenancy.md
-```
-```{include} ./someFolde/fileA.md
-```
-```{include} ./someFolde/fileB.md
-```
--->
+<!-- Show only slide, no page. -->
 {% endif %}
 
