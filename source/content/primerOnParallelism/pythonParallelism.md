@@ -1,3 +1,46 @@
+{% if build == "slides" %}
+
+## Parallelism in Python
+
+### The GIL Challenge
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} 🔒 Global Interpreter Lock
+Only **one thread** executes Python bytecode at a time
+
+**Threading**: Concurrency (task switching)  
+**Multiprocessing**: True parallelism
+::::
+
+::::{grid-item-card} 🎯 Python's Role
+**Orchestration layer** for compiled code
+
+`numpy`, `pandas`, `scipy` → C/C++/Fortran  
+Python releases GIL → multi-core execution
+::::
+
+:::::
+
+### Performance Patterns
+
+| Scenario | Approach | Speedup |
+|----------|----------|---------|
+| CPU-bound | `multiprocessing` | ~N cores |
+| I/O-bound | `threading`/`asyncio` | Significant |
+| Vectorized (NumPy) | **Already parallel** | None needed |
+
+```{warning}
+**Anti-pattern**: Iterating over NumPy arrays with Python loops
+```
+
+```{tip}
+**Golden Rule**: Optimize sequential code (vectorization) before parallelizing
+```
+
+{% else %}
+
 ## Parallelism in Python: Capabilities and Constraints
 
 Python presents a unique case in parallel computing. While it is the dominant language in data science and scientific computing, it has specific constraints that affect how parallelism can be achieved.
@@ -35,8 +78,6 @@ import time
 import threading
 import multiprocessing 
 import numpy as np
-import matplotlib.pyplot as plt
-
 
 def report_work(t_start, array, target_index:int=1):
     """
@@ -220,3 +261,5 @@ timeit(python_loop, 100, py_list)       # ~2.1s - pure Python loop
 ```{tip}
 **Golden Rule**: Make your sequential code as efficient as possible (using vectorization, compiled libraries) before attempting parallelization. Often, proper use of NumPy eliminates the need for manual parallel coding.
 ```
+
+{% endif %}
