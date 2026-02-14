@@ -1,3 +1,51 @@
+{% if build == "slides" %}
+
+## Profiling and Debugging
+
+### Key Principle
+
+```{important}
+**Profile before optimizing** — Intuition about performance is often wrong
+```
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} 📊 Profiling Tools
+**Quick timing**: `time.perf_counter()`  
+**Full analysis**: `cProfile`  
+**Line-by-line**: `line_profiler`  
+**Memory**: `memray`
+
+*Find bottlenecks first*
+::::
+
+::::{grid-item-card} 🐛 Debugging Strategy
+1. Test **sequentially** first
+2. Use **logging** (not print)
+3. Reduce parallelism (2 workers)
+4. Validate intermediate results
+
+*Isolate before parallelizing*
+::::
+
+:::::
+
+### Debugging Workflow
+
+```{mermaid}
+graph LR
+    A[Identify Bug] --> B[Reproduce]
+    B --> C[Locate Source]
+    C --> D[Fix & Verify]
+```
+
+```{tip}
+**Integration test**: Verify expected speedup (4 processes ≈ 4x faster)
+```
+
+{% else %}
+
 ## Profiling and Debugging Parallel Code
 
 Developing efficient parallel code requires more than just distributing work across processors. Understanding where your code spends its time and identifying issues are critical skills for producing high-quality, performant software.
@@ -241,3 +289,5 @@ def worker(task_id):
 ```{tip}
 **Integration Testing for Parallel Code**: Write tests that verify not just correctness but also expected speedup. If 4 processes don't provide ~4x speedup for an embarrassingly parallel problem, investigate why.
 ```
+
+{% endif %}
