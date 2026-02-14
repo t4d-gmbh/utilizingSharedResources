@@ -1,32 +1,67 @@
-## Conceptual Framework for Parallel Computing
+{% if build == "slides" %}
 
-Understanding parallelism requires familiarity with several fundamental concepts from computer science. These concepts form the foundation for discussing how computational tasks can be distributed across multiple processing units.
+## Conceptual Framework
 
-### Concurrent vs. Parallel Computing
+:::::{grid} 1 1 2 2
+:gutter: 3
 
-**Concurrent computing** and **parallel computing** are distinct concepts, though they are often confused. To visualize the difference, consider this analogy: eating cake and singing a song are activities that can occur concurrently (by interleaving verses and bites), but they cannot happen in parallel (at the exact same instant).
+::::{grid-item-card} Concurrency vs. Parallelism
+**Concurrency**: Switching between tasks  
+**Parallelism**: Simultaneous execution
 
-- **Concurrency** refers to managing multiple tasks that make progress by switching between them, often on a single processor
-- **Parallelism** refers to executing multiple tasks truly simultaneously on multiple processors
+*Limited by physical cores*
+::::
 
-For parallel computing to occur, each task must execute on its own physical processing unit (core or CPU). This fundamental hardware requirement shapes how we approach parallelization in practice.
+::::{grid-item-card} Processes vs. Threads
+**Processes**: Isolated, own memory  
+**Threads**: Shared memory, faster
 
-### Processes and Threads
+*Choose based on isolation needs*
+::::
 
-Two key concepts underpin parallel and concurrent computing:
+:::::
 
-**Processes** are independent program instances, each with their own memory space. They are isolated from one another and require explicit mechanisms for communication (Inter-Process Communication, or IPC).
+### The Parallel Workflow
 
-**Threads** are lightweight execution units within a process. Threads within the same process share memory, enabling efficient data exchange but introducing risks such as race conditions if not properly managed.
+```{mermaid}
+graph LR
+    A[Orchestration] --> B1[Job 1]
+    A --> B2[Job 2]
+    A --> B3[Job 3]
+    B1 --> C[Aggregation]
+    B2 --> C
+    B3 --> C
+```
 
-The choice between multi-threading and multi-processing depends on:
-- The need for memory isolation vs. shared state
-- Communication overhead requirements
-- Language-specific constraints (e.g., Python's Global Interpreter Lock)
+**Key**: Match problem coupling to architecture
+- **Embarrassingly parallel** → Easy to scale
+- **Tightly coupled** → Communication overhead
 
-### Parallelization Workflow Pattern
+{% else %}
 
-Most parallelized computational workflows follow a common three-stage pattern:
+## Concurrent vs. Parallel
+
+Think of eating cake while singing: you can do them *concurrently* (alternating bites and verses) but not *in parallel* (simultaneously).
+
+- **Concurrency**: Multiple tasks making progress by switching between them
+- **Parallelism**: Multiple tasks executing truly simultaneously
+
+True parallelism often needs multiple physical cores—one per task. This hardware constraint is why we can't just "make everything parallel."
+
+## Processes vs. Threads
+
+**Processes**: Independent program instances, each with their own memory space. They are isolated from one another and require explicit mechanisms for communication (Inter-Process Communication, or IPC).
+
+**Threads**: Lightweight units sharing memory within a process. Fast communication but risk race conditions.
+
+Which to use?
+- Need isolation → processes
+- Need fast communication → threads  
+- Language constraints matter (Python's Global Interpreter Lock limits threads)
+
+## The Typical Parallel Workflow
+
+Three stages:
 
 1. **Orchestration**: Initial setup and task distribution across available resources
 2. **Individual Jobs**: Independent or semi-independent computation on distributed resources
@@ -41,7 +76,6 @@ graph LR
     B1 --> C[Aggregation]
     B2 --> C
     B3 --> C
-    B4 --> C
 ```
 
 This pattern is remarkably universal, appearing in contexts ranging from multi-core laptop computations to large-scale distributed systems. Understanding this workflow helps identify where parallelization can be applied and what communication overhead to expect.
@@ -71,3 +105,5 @@ Different stages of the parallelization workflow have different communication ch
 - **During Aggregation**: Most workflows require collecting results from all tasks, though the volume can range from simple success/failure signals to large datasets
 
 Understanding these communication patterns helps in selecting appropriate hardware architectures and software frameworks for your specific use case.
+
+{% endif %}
