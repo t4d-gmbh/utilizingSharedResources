@@ -5,7 +5,7 @@
 {% if build == "slides" %}yourChallenges/index
 {% endif %}challenges/index
 introComputerChips/index
-fromMhzToTerraflops/index
+fromMhzToTeraflops/index
 concurrency/index
 primerOnParallelism/index
 fromConcurrencyToMultitenancy/index
