@@ -1,3 +1,54 @@
+{% if build == "slides" %}
+
+## Implementation Approaches
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} 🧵 Multi-Threading
+**Shared memory** within process
+
+✅ Fast communication  
+✅ Low overhead  
+⚠️ Race conditions  
+⚠️ Python GIL limitation
+
+*Tightly coupled tasks*
+::::
+
+::::{grid-item-card} ⚙️ Multi-Processing
+**Isolated processes** with IPC
+
+✅ True parallelism  
+✅ No race conditions  
+⚠️ Communication overhead  
+⚠️ Higher memory use
+
+*Embarrassingly parallel*
+::::
+
+:::::
+
+### Communication Trade-off
+
+```{mermaid}
+graph LR
+    subgraph "Multi-Threading"
+    T1[Thread 1] -.shared.-> M[Memory]
+    T2[Thread 2] -.shared.-> M
+    end
+    
+    subgraph "Multi-Processing"
+    P1[Process 1] -->|IPC| P2[Process 2]
+    end
+```
+
+```{tip}
+**Litmus test**: "Do the same thing to 1000 inputs independently" → Multi-processing
+```
+
+{% else %}
+
 ## Implementing Parallelism: Multi-Threading vs. Multi-Processing
 
 Different programming approaches enable parallelism at different architectural levels. Understanding the distinction between multi-threading and multi-processing is crucial for implementing efficient parallel solutions.
@@ -55,8 +106,6 @@ graph LR
     
     subgraph "Multi-Processing"
     P1[Process 1] -->|IPC| P2[Process 2]
-    P2 -->|IPC| P3[Process 3]
-    P1 -->|IPC| P3
     end
 ```
 
@@ -123,4 +172,4 @@ The impact of IPC overhead varies dramatically with problem characteristics:
 **The embarrassingly parallel litmus test**: If you can describe your problem as "do the same thing to 1000 different inputs independently," you likely have an embarrassingly parallel problem—an ideal candidate for multi-processing or distributed computing.
 ```
 
-Understanding these trade-offs enables you to select the parallelization strategy that maximizes performance while minimizing implementation complexity and debugging challenges.
+{% endif %}
