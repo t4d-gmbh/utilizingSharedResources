@@ -1,7 +1,6 @@
 # <i class="fa-solid fa-road-barrier"></i> Challenges you ran into
 
-
-{% if slides %}
+{% if build == "slides" %}
 <!-- BUILDING THE SLIDES -->
 
 ## <i class="fa-solid fa-users"></i> What Challenges Do We Share?
