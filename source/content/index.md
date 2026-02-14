@@ -15,6 +15,6 @@ introCloud/index
 introCluster/index
 introDistributedStorage/index
 suitabilityChecklist/index
-terminology/index
+{% if page %}terminology/index{% endif %}
 
 ```
