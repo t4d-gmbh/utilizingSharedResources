@@ -1,10 +1,64 @@
+{% if build == "slides" %}
+
+## Architectural Levels of Parallelism
+
+:::::{grid} 1 1 3 3
+:gutter: 3
+
+::::{grid-item-card} 💻 Multi-Core
+**4-16 cores**  
+Shared memory  
+Fast communication
+
+*Local development & testing*
+::::
+
+::::{grid-item-card} 🖥️ HPC Clusters
+**100s-1000s nodes**  
+Scheduled jobs  
+High-speed network
+
+*Large-scale simulations*
+::::
+
+::::{grid-item-card} ☁️ Cloud
+**On-demand scaling**  
+Pay-per-use  
+Flexible resources
+
+*Variable workloads*
+::::
+
+:::::
+
+### Multi-Level Parallelism
+
+```{mermaid}
+graph TB
+    O[Orchestration] --> M1[Machine 1<br/>8 cores]
+    O --> M2[Machine 2<br/>8 cores]
+    O --> M3[Machine N<br/>8 cores]
+    M1 --> C1[Core-level]
+    M2 --> C2[Core-level]
+    M3 --> C3[Core-level]
+```
+
+**Strategy**: Coarse-grained between machines, fine-grained within machines
+
+```{tip}
+**Start small** → Test locally → Scale up
+```
+
+{% else %}
+
 ## Architectural Levels of Parallelism
 
 Parallelization can occur at multiple architectural levels, each with distinct characteristics, capabilities, and use cases. Understanding these levels helps you choose the right approach for your computational needs.
 
 ### Multi-Core Architectures
 
-**Multi-core computers** are the most accessible form of parallel hardware—your laptop or workstation likely has multiple cores. Modern personal devices typically feature 4 to 16 physical cores.
+**Multi-core computers** are the most accessible form of parallel hardware.
+Your laptop or workstation likely has multiple cores. Todays modern personal devices typically feature 4 to 16 physical cores.
 
 **Key Characteristics:**
 - All cores share access to the same main memory (RAM)
@@ -32,7 +86,7 @@ Important: An 8 CPU / 16 Thread machine can run **8 tasks in parallel**, not 16.
 
 ### Cluster Architectures (HPC)
 
-**High-Performance Computing (HPC) clusters** consist of many networked computers (nodes), each with multiple cores. Academic institutions often provide access to such systems for research computing.
+**High-Performance Computing clusters** consist of many networked computers (nodes), each with multiple cores. Academic institutions often provide access to such systems for research computing.
 
 **Key Characteristics:**
 - Hundreds to thousands of individual multi-core nodes
@@ -135,3 +189,5 @@ The appropriate architectural level depends on your problem characteristics:
 ```{tip}
 **Start small**: Develop and test your parallelization approach on your local multi-core machine before scaling to clusters or cloud. This iterative approach helps identify issues early and reduces wasted resources.
 ```
+
+{% endif %}
