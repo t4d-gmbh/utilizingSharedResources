@@ -2,8 +2,8 @@
 :maxdepth: {% if build == "slides" %}1{% else %}4{% endif %}
 :caption: Utilizing Shared Resources
 
-yourChallenges/index
-challenges/index
+{% if build == "slides" %}yourChallenges/index
+{% endif %}challenges/index
 introComputerChips/index
 fromMhzToTerraflops/index
 concurrency/index
