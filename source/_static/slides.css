@@ -20,13 +20,13 @@ div.margin {
 }
 
 #rescaled-text {
-    font-size: max(1vh, 0.6vw) !important;
+    font-size: max(1.5vh, 0.6vw) !important;
 }
 #rescaled-text h1 {
-    margin: 1.5vh 0 0.5vh 0 !important;
+    margin: 1.5vh 0 1.5vh 0 !important;
     font-size: max(2vh, 1.2vw) !important;
 }
 #rescaled-text h2 {
-    margin: 1vh 0 0.5vh 0 !important;
-    font-size: max(1.5vh, 0.9vw) !important;
+    margin: 1vh 0 1.0vh 0 !important;
+    font-size: max(1.8vh, 0.9vw) !important;
 }

@@ -2,10 +2,10 @@
 :maxdepth: {% if build == "slides" %}1{% else %}4{% endif %}
 :caption: Utilizing Shared Resources
 
-yourChallenges/index
-challenges/index
+{% if build == "slides" %}yourChallenges/index
+{% endif %}challenges/index
 introComputerChips/index
-fromMhzToTerraflops/index
+fromMhzToTeraflops/index
 concurrency/index
 primerOnParallelism/index
 fromConcurrencyToMultitenancy/index
@@ -15,6 +15,6 @@ introCloud/index
 introCluster/index
 introDistributedStorage/index
 suitabilityChecklist/index
-terminology/index
+{% if page %}terminology/index{% endif %}
 
 ```
