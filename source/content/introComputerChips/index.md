@@ -7,7 +7,7 @@
 
 ./beginnings
 ./z3
-./first
+./mark1
 ./transistors
 ./integratedCircuit
 ./microprocessor.md
@@ -17,13 +17,13 @@
 ```
 
 {% else %}
-<!-- BUILDING THE PAGES -->
 
+<!-- BUILDING THE PAGES -->
 ```{include} ./beginnings.md
 ```
 ```{include} ./z3.md
 ```
-```{include} ./first.md
+```{include} ./mark1.md
 ```
 ```{include} ./transistors.md
 ```
@@ -43,5 +43,19 @@
 ```{include} ./someFolde/fileB.md
 ```
 -->
+
+
+#### Sources
+
+https://en.wikipedia.org/wiki/Computer  
+https://en.wikipedia.org/wiki/Universal_Turing_machine  
+https://en.wikipedia.org/wiki/Z3_(computer)#Z3_as_a_universal_Turing_machine  
+https://en.wikipedia.org/wiki/Manchester_Mark_1  
+https://en.wikipedia.org/wiki/Integrated_circuit  
+https://en.wikipedia.org/wiki/Mohamed_Atalla  
+https://en.wikipedia.org/wiki/Limits_of_computation  
+https://en.wikipedia.org/wiki/Moore%27s_law  
+https://en.wikipedia.org/wiki/Dennard_scaling  
+
 {% endif %}
 
