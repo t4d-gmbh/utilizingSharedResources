@@ -6,6 +6,7 @@
 
 :::{grid-item}
 :columns: 6
+:class: sd-m-auto
 ```{image} ./../_static/mark1.png
 :alt: sidebar image
 :width: 100%
@@ -14,6 +15,7 @@
 
 :::{grid-item}
 :columns: 6
+:class: sd-m-auto
 
 {% if slide %}
 
