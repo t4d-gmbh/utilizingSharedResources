@@ -31,7 +31,11 @@ The number of transistors on a chip doubles every two years.
 :columns: 6 
 
 **Dennard scaling:**  
-Power usage of a transistor is proportional to its area.
+Power usage of a transistor is proportional to its area.  
+
+{.smaller}
+_The clock frequency increases with decreasing size._
+
 <!-- ; smaller transistors switch faster and use less energy. -->
 
 :::

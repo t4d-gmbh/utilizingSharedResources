@@ -10,6 +10,8 @@
 ./growing
 ./question
 ./industryReply
+./challenges
+./efficiency
 ```
 
 {% else %}
@@ -18,6 +20,8 @@
 ```{include} ./question.md
 ```
 ```{include} ./industryReply.md
+```
+```{include} ./challenges.md
 ```
 ```{include} ./efficiency.md
 ```

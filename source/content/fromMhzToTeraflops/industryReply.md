@@ -19,7 +19,7 @@ _Image adapted from <https://en.wikipedia.org/wiki/File:CPU_clock_speed_and_Core
 
 {% if slide %}
 {.centered}
-**Instead of making a single core faster, simple add more cores!**
+**Instead of making a single core faster, simply add more cores!**
 {% endif %}
 
 
