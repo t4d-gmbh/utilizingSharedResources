@@ -2,25 +2,25 @@
 <!-- Concurrency -->
 
 
-{% if slides %}
+{% if slide %}
 <!-- BUILDING THE SLIDES -->
 ```{toctree}
 :maxdepth: 3
 
-<!-- ./someFile -->
-<!-- ./someFolder/index -->
+./definition
+./issues
 ```
 
 {% else %}
 <!-- BUILDING THE PAGES -->
 
-<!--
-```{include} ./multiTenancy.md
+```{include} ./definition.md
 ```
-```{include} ./someFolde/fileA.md
+```{include} ./issues.md
 ```
-```{include} ./someFolde/fileB.md
-```
--->
+{.smaller}
+**Sources:**  
+<https://en.wikipedia.org/wiki/Concurrency_(computer_science)>
+
 {% endif %}
 
