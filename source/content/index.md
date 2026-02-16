@@ -8,9 +8,9 @@ introComputerChips/index
 fromMhzToTeraflops/index
 concurrency/index
 primerOnParallelism/index
-fromConcurrencyToMultitenancy/index
-resourceSharingPrinciple/index
+fromConcurrencyToService/index
 aaS/index
+resourceSharingPrinciple/index
 introCloud/index
 introCluster/index
 introDistributedStorage/index
