@@ -37,6 +37,3 @@ The era of speed gain through simple transistor scaling was over.
 :::
 ::::
 
-
-
-
