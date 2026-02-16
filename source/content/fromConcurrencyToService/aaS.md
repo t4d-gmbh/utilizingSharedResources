@@ -1,8 +1,13 @@
 ## <i class="fa-regular fa-star"></i> as a Service
 
-{% if slide %}
-{% else %}
-{% endif %}
+:::{figure} ./../_static/toaaS.png
+:alt: To the as a Service
+:width: 100%
+{% if page %}:figclass: margin{% endif %}
+:::
+
+
+{% if page %}
 
 This technological capability inevitably led to an economic transformation: shareable resources are marketable.
 
@@ -16,3 +21,5 @@ In this model, efficiency is no longer just an engineering metric—it is the di
 While the concept of renting computing power dates back to the 1960s with 'Time-Sharing' and evolved into 'Application Service Providers' (ASP) in the 1990s, the modern term 'Software as a Service' (SaaS) was officially coined in a February 2001 internal document by the Software & Information Industry Association (SIIA).
 
 Since then, the 'As a Service' paradigm has become the dominant economic model for computing, shifting the industry's focus from selling machines (ownership) to selling outcomes (service).
+
+{% endif %}

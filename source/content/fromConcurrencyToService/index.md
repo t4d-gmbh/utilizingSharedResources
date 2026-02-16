@@ -1,4 +1,4 @@
-# From Concurrency to Resource Sharing
+# From Concurrency to Service
 
 {% if slide %}
 <!-- BUILDING THE SLIDES -->
@@ -19,13 +19,11 @@
 ```
 ```{include} ./aaS.md
 ```
-{% endif %}
-
-
 
 {.smaller}
-**Source:**  
+**Sources:**  
 <https://en.wikipedia.org/wiki/Concurrency_(computer_science)>  
 <https://en.wikipedia.org/wiki/Multitenancy>  
 <https://en.wikipedia.org/wiki/Software_as_a_service>  
 <https://en.wikipedia.org/wiki/As_a_service>  
+{% endif %}
