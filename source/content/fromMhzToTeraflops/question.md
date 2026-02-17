@@ -36,7 +36,7 @@ After 2005 the **CPU clock speeds stagnated** at roughly 4 GHz after hitting the
 {% else %}
 
 With Dennard scaling hitting practical boundaries (the "Power Wall") around 2005, leading to the stagnation of CPU clock speeds at roughly 4 GHz it was by no means that we witnessed a stagnation in usable computing power.
-In fact, the number of calculations computers were able to perform kept on increasing almost as if the CPU clock speed had no influence on performance.
+In fact, the number of calculations computers were able to perform, kept on increasing almost as if the CPU clock speed had no influence on performance.
 
 :::{margin}
 {.smaller}
