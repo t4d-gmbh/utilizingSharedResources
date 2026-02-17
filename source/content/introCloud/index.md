@@ -1,6 +1,6 @@
 # The <i class="fa-solid fa-cloud"></i> Cloud
 
-Commonly Infrastructure as a Service products are called: Clouds
+Infrastructure as a Service (IaaS) products are often simply called: Clouds
 
 {% if slide %}
 <!-- BUILDING THE SLIDES -->
