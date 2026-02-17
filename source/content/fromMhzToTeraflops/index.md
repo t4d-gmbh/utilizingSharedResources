@@ -28,9 +28,9 @@
 
 {.smaller}
 **Sources:**  
-https://en.wikipedia.org/wiki/Concurrency_(computer_science)  
-https://en.wikipedia.org/wiki/Multiprocessing  
-https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)  
-https://en.wikipedia.org/wiki/Instruction-level_parallelism  
+<https://en.wikipedia.org/wiki/Concurrency_(computer_science)>  
+<https://en.wikipedia.org/wiki/Multiprocessing>  
+<https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)>  
+<https://en.wikipedia.org/wiki/Instruction-level_parallelism>  
 {% endif %}
 
