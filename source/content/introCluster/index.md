@@ -1,4 +1,6 @@
-# <i class="fa-solid fa-sitemap"></i> Clusters
+# <i class="fa-solid fa-sitemap"></i> HPC Clusters
+
+High Performance Computing as a Service (HPCaaS) deployments are commonly called: HPC Clusters
 
 {% if slides %}
 <!-- BUILDING THE SLIDES -->
