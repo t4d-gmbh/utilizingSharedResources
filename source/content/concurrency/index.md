@@ -18,6 +18,7 @@
 ```
 ```{include} ./issues.md
 ```
+
 {.smaller}
 **Sources:**  
 <https://en.wikipedia.org/wiki/Concurrency_(computer_science)>

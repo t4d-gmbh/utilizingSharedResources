@@ -49,7 +49,7 @@ The ability of a system to progress in multiple tasks through simultaneous execu
 ```
 
 In other words, concurrency is the ability of a computer system to handle multiple tasks with overlapping lifetimes, rather than running them strictly one after another.
-It allows a program to be decomposed into independent segments that can run in parallel, be paused, or be resumed—all without altering the final outcome.
+It allows a program to be decomposed into independent segments that can run in parallel, be paused, or be resumed without altering the final outcome.
 
 A concurrent system efficiently utilizes its computational capacity by avoiding idle time (e.g., switching to another task while waiting for data from RAM).
 
