@@ -36,6 +36,34 @@ The ability of a system to progress in multiple tasks through
 :::
 ::::
 
+:::::{grid} 2
+:gutter: 3
+
+::::{grid-item-card} Sequential Approach
+:::{grid-item-card} **Dataset 1:**
+- Download (30 sec)
+- Process (60 sec)
+:::
+:::{grid-item-card} **Dataset 2:**
+- Download (30 sec)
+- Process (60 sec)
+:::
+**Total: 180 seconds**
+::::
+
+::::{grid-item-card} Concurrent Approach
+:::{grid-item-card} **Dataset 1:**
+- Download (30 sec)
+- Process (60 sec)
+:::
+:::{grid-item-card} **Dataset 2:**
+- *Download during proc. 1*
+- Process (60 sec)
+:::
+**Total: 150 seconds** (17% faster)
+::::
+:::::
+
 {% else %}
 
 :::{figure} ./../_static/concurrency.png
@@ -57,37 +85,33 @@ A concurrent system efficiently utilizes its computational capacity by avoiding 
 
 Consider a program that needs to download and process multiple large datasets:
 
-{% if slide %}
-::::{grid} 2
-:::{grid-item-card} Sequential Execution
-Download file 1 → Process file 1 →  
-Download file 2 → Process file 2
+:::::{grid} 2
+:gutter: 3
 
-**Total time:** 2 × (download + process)
+::::{grid-item-card} Sequential Approach
+:::{grid-item-card} **Dataset 1:**
+- Download (30 sec)
+- Process (60 sec)
 :::
-:::{grid-item-card} Concurrent Execution
-Download file 1 → Process file 1  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ Download file 2
-
-**Total time:** download + 2 × process
+:::{grid-item-card} **Dataset 2:**
+- Download (30 sec)
+- Process (60 sec)
 :::
+**Total: 180 seconds**
 ::::
-{% else %}
 
-**Sequential approach:**
-1. Download dataset 1 (30 seconds)
-2. Process dataset 1 (60 seconds)
-3. Download dataset 2 (30 seconds)
-4. Process dataset 2 (60 seconds)
-
-**Total time: 180 seconds**
-
-**Concurrent approach:**
-1. Download dataset 1 (30 seconds)
-2. Process dataset 1 **while simultaneously** downloading dataset 2 (60 seconds)
-3. Process dataset 2 (60 seconds)
-
-**Total time: 150 seconds** which is a 17% improvement by overlapping network I/O with computation.
+::::{grid-item-card} Concurrent Approach
+:::{grid-item-card} **Dataset 1:**
+- Download (30 sec)
+- Process (60 sec)
+:::
+:::{grid-item-card} **Dataset 2:**
+- *Download during processing 1*
+- Process (60 sec)
+:::
+**Total: 150 seconds** (17% faster)
+::::
+:::::
 
 This illustrates how concurrency exploits natural waiting periods. While the CPU processes one dataset, the network interface downloads another, keeping both resources actively utilized rather than leaving one idle.
 {% endif %}
