@@ -12,8 +12,8 @@
 ```
 :::
 ::::
-
-_Image adapted from https://en.wikipedia.org/wiki/File:CPU_clock_speed_and_Core_count_Graph.png_
+{.smaller}
+Image adapted from <https://en.wikipedia.org/wiki/File:CPU_clock_speed_and_Core_count_Graph.png>_
 
 ::::
 
