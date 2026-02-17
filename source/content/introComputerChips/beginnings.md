@@ -43,7 +43,7 @@ While the length of the memory tape might need to be infinite, the set of symbol
 The **Universal Turing Machine** (UTM) is a Turing Machine with a fixed table of rules that can, given right memory tape, mimic any Turing Machine and thus can implement any algorithm simply by providing it with the right memory tape.
 
 Consequentially, given an UTM, any algorithm or program can be implemented "simply" by delivering a sequence of instructions (i.e. the memory tape).
-This makes an UTM a universal device for algorithmic operations that does, once created, not need to be modified ever again, even when its use case changes.
+This makes an UTM a universal device for algorithmic operations that does, once created, not need to be modified ever again, even when its use-case changes.
 With an UTM, the process of building an arbitrary program becomes a purely logical challenge: Determine the correct set of instructions to feed to an UTM.
 
 {% endif %}
