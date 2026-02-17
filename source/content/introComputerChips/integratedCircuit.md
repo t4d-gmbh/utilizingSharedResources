@@ -34,9 +34,8 @@ The metal-oxide-semiconductor field-effect transistor (**MOSFET**) by Atalla and
 
 An Integrated Circuit (IC) is a set of electronic circuits—including transistors, resistors, and capacitors—manufactured together on a single piece of semiconductor material (usually silicon), allowing complex functions to be performed by a compact chip rather than a board of individual components.  
 The IC was invented both by Jack Kilby in 1958, using Germanium as semiconductor plate and by Robert Noyce in 1959, with a Silicon chip and by printing connections directly onto the chip.
-This "planar process" was suitable for mass production and is the ancestor of how modern chips are produced.
+This "planar process" was suitable for mass production and is the ancestor of [how modern chips are produced](https://youtu.be/MiUHjLxm3V0?si=Dg429hMNnF5inexc).
 Both ICs used current driven Bipolar Junction transistors (BJT) which were state of the art at that time.
-
 {% endif %}
 :::
 
