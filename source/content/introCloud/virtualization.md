@@ -2,7 +2,7 @@
 
 {% if page %}
 
-Virtualization is the key concept in a cloud infrastructure.
+Virtualization - **Hardware Virtualizaton** to be more precise - is the key concept in a cloud infrastructure.
 It became broadly available for the standard x86 computer architecture in the early 2000s and lead to a profound change in how computer infrastructures were utilized.
 
 The most common form, Hardware Virtualization, aims to decouple Operating System (OS) and applications from the physical hardware by providing an abstraction layer, mimicking real hardware to the virtualized Operating System.
@@ -24,7 +24,6 @@ A common classification is to distinguish between Type 1 and Type 2 Hipervisors.
 ```{epigraph}
 {.centered}
 Hardware Virtualization decouples the OS from the physical hardware with an abstraction layer (Hipervisor), mimicking real hardware to the OS.  
-An instance of a virtualized OS is typically called a **Virtual Machine**.
 ```
 
 {% endif %}
@@ -74,22 +73,38 @@ Commonly known are VirtualBox, Parallel Desktop (MacOS only) and GNOME Boxes.
 
 ::::
 
+### Operating-System-Level Virtualization
+
+
 {% if slide %}
 
-### Containers
-
-- Operating-system-level virtualization (from the kernel up).
+- Virtualizes from the kernel upwards using Namespaces and Cgroups.
 - Allows for fast, isolated, portable guest OS "containers".
 
 {% else %}
 
-Other forms of virtualization are Desktop and Operating-system-level virtualization.
 
-In Operating-system-level virtualization is better known as **Containerization** and a widely used practice.
-In containerization the kernel of the hosting OS allows multiple user-spaces (virtualized memory address space) to co-exist.
-On such an user-space we can put everything from the kernel upward of an Operating System, creating a guest OS, or  "container", runs on the kernel of the hosting OS but has only selective access to resources.
+Operating-system-level virtualization is a widely used architectural principle in modern infrastructure.
+Unlike hardware virtualization, which simulates physical hardware to run multiple distinct operating systems, this technique partitions a single host operating system into multiple isolated environments.
 
-**Desktop virtualization** ...
+At the core of this architecture is the concept of the shared kernel.
+In a traditional virtualization setup, every guest requires its own full OS kernel to manage memory and hardware drivers, which creates significant overhead in terms of storage and startup time.
+In contrast, OS-level virtualization leverages the existing kernel of the host machine to run multiple "guests" simultaneously.
+This removes the need for an additional layer of heavy system software, allowing the environments to start in milliseconds rather than minutes.
+
+To ensure stability and security, the host kernel creates isolated User Spaces — virtualized instances of the operating system's memory and process environment.
+This isolation is achieved through two key kernel features:
+
+**Namespaces (Isolation of View)**:  
+These act as a visual filter, tricking the processes inside the virtualized environment into believing they are the only ones running on the system.
+The environment sees its own independent file system, network stack, and process tree (often perceiving its main process as "Process ID 1"), while remaining blind to the host's other processes.
+
+**Control Groups (Isolation of Resources)**:  
+Often referred to as "cgroups," these enforce strict resource limits.
+They ensure that a specific isolated environment can only consume a defined amount of CPU, RAM, or Disk I/O, preventing any single instance from exhausting the host's resources.
+
+The result is a Virtual Execution Environment: a lightweight, portable unit that bundles an application with all its dependencies.
+While it relies on the host kernel for execution, to the application running inside, it appears to be a fully independent operating system.
 
 
 
