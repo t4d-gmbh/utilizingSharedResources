@@ -1,24 +1,41 @@
-# <i class="fa-solid fa-cloud"></i> Cloud infrastuctures
+# The <i class="fa-solid fa-cloud"></i> Cloud
 
-{% if slides %}
+Infrastructure as a Service (IaaS) products are often simply called: Clouds
+
+{% if slide %}
 <!-- BUILDING THE SLIDES -->
 ```{toctree}
 :maxdepth: 3
 
-<!-- ./someFile -->
-<!-- ./someFolder/index -->
+./virtualization
+./vm
+./container
+./theCloudSchema
+./cloudFeatures
+./cloudOS
 ```
 
 {% else %}
 <!-- BUILDING THE PAGES -->
 
-<!--
-```{include} ./multiTenancy.md
+```{include} ./virtualization.md
 ```
-```{include} ./someFolde/fileA.md
+```{include} ./vm.md
 ```
-```{include} ./someFolde/fileB.md
+```{include} ./container.md
 ```
--->
+```{include} ./theCloudSchema.md
+```
+```{include} ./cloudFeatures.md
+```
+```{include} ./cloudOS.md
+```
+
+{.smaller}
+**Sources**:  
+<https://en.wikipedia.org/wiki/Virtualization>  
+<https://en.wikipedia.org/wiki/Hardware_virtualization>  
+<https://en.wikipedia.org/wiki/Hypervisor>  
+<https://docs.openstack.org/2025.2>  
 {% endif %}
 
