@@ -3,20 +3,20 @@ from setuptools_scm import get_version
 
 # -- Configuration parameter -------------------------------------------------
 # ----------------------------------------------------------------------------
-repository_owner = "FIXME"
-repository_name = "FIXME"
+repository_owner = "T4D-GmbH"
+repository_name = "utilizingSharedResources"
 repository_branch = "main"
 # -- set the logo
 course_logo = {
-    "image_light": "_static/FIXME",
-    "image_dark": "_static/FIXME",
-    "alt-text": "",  # FIXME: optionally provide alt text
-    "favicon": "_static/FIXME",
+    "image_light": "_static/T4D_logo_bw.svg",
+    "image_dark": "_static/T4D_logo_wb.svg",
+    "alt-text": "",
+    "favicon": "_static/T4D_logo.svg",
 }
 # -- name your project
-project = 'FIXME'
+project = 'Utilizing Shared Resources'
 # -- provide authorship info
-author = 'FIXME'
+author = 'Matteo Delucchi - @matteodelucchi; Jonas I. Liechti @j-i-l'
 # -- optionally adapt copyright
 # ---OPTIONAL ----------------------------------------------------------------
 # -- custom page url for own domain
