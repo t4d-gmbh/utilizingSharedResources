@@ -8,6 +8,8 @@ Infrastructure as a Service (IaaS) products are often simply called: Clouds
 :maxdepth: 3
 
 ./virtualization
+./vm
+./container
 ./theCloudSchema
 ./cloudFeatures
 ./cloudOS
@@ -17,6 +19,10 @@ Infrastructure as a Service (IaaS) products are often simply called: Clouds
 <!-- BUILDING THE PAGES -->
 
 ```{include} ./virtualization.md
+```
+```{include} ./vm.md
+```
+```{include} ./container.md
 ```
 ```{include} ./theCloudSchema.md
 ```
