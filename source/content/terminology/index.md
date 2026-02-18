@@ -7,4 +7,5 @@
 ./slurm
 ./cluster
 ./container
+./dockerfile
 ```

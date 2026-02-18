@@ -11,6 +11,11 @@ Virtualization at the OS level leads to various products, like Zones, Jails, Vir
 
 {% endif %}
 
+```{admonition} [Dockerfile](#Dockerfile)
+:class: tip, margin
+The `dockerfile` can contain both instructions for the image and the manifest!
+```
+
 ::::{grid}
 :gutter: 3
 
