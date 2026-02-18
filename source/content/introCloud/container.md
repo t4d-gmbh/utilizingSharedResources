@@ -7,7 +7,7 @@ The product (one of many) of OS-level virtualization.
 ```
 {% else %}
 
-Virtualization at the OS level leads to various products, like Zones, Jails, Virtual Private Servers, but most notably Container.
+Virtualization at the OS level leads to various products, like Zones, Jails, Virtual Private Servers, but most notably: Containers.
 
 {% endif %}
 
