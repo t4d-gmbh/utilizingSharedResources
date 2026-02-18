@@ -5,21 +5,20 @@
 ```{toctree}
 :maxdepth: 3
 
-<!-- ./someFile -->
-<!-- ./someFolder/index -->
+./sharedStorageTypes
 ```
 
 {% else %}
 <!-- BUILDING THE PAGES -->
 
-<!--
-```{include} ./multiTenancy.md
+```{include} ./sharedStorageTypes.md
 ```
-```{include} ./someFolde/fileA.md
-```
-```{include} ./someFolde/fileB.md
-```
--->
+{.smaller}
+**Sources**:  
+<https://docs.ceph.com/en/>   
+<https://docs.openstack.org/>  
+<https://slurm.schedmd.com/documentation.html>  
+<https://wiki.lustre.org/Main_Page>  
 {% endif %}
 
 
