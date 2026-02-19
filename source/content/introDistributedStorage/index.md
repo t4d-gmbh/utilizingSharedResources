@@ -1,17 +1,20 @@
 # Distributed Storage
 
-{% if slides %}
+{% if slide %}
 <!-- BUILDING THE SLIDES -->
 ```{toctree}
 :maxdepth: 3
 
 ./sharedStorageTypes
+./blockStorage
 ```
 
 {% else %}
 <!-- BUILDING THE PAGES -->
 
 ```{include} ./sharedStorageTypes.md
+```
+```{include} ./blockStorage.md
 ```
 {.smaller}
 **Sources**:  
@@ -21,4 +24,7 @@
 <https://wiki.lustre.org/Main_Page>  
 {% endif %}
 
+{% if slide %}
+{% else %}
+{% endif %}
 

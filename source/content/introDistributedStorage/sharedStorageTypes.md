@@ -18,18 +18,10 @@ Selecting an inappropriate storage type can create significant performance bottl
 
 To make good use of such infrastructures and help to maintain system stability, four primary storage architectures should be understood:
 
-### Block Storage
-```{admonition} Virtual USB Drive
-:class: tip, margin
-Think of Block Storage as a raw, unformatted USB drive that is plugged permanently into a single specific computer
-```
-
-At the most fundamental level, every virtual machine or compute node needs a "local disk" to boot the operating system and run applications.
-This is **Block Storage**.
-
-In a cloud environment like OpenStack, systems like Cinder (often backed by **Ceph RBD**) carve out these virtual drives from a massive pool of disks.
-The defining characteristic of Block Storage is exclusivity: a block volume is typically attached to **only one node at a time**.
-This exclusivity allows for fast and low-latency access, making it the perfect home for your Operating System, your local software libraries (like Conda environments), and high-performance databases (like PostgreSQL) that require transactional integrity.
+- **Block Storage**
+- **Object Storage**
+- **Persistent Shared Filesystems**
+- **Ephemeral Storage**
 
 
 ### Object Storage
