@@ -1,10 +1,5 @@
 ## HPC as a Service
 
-```{margin}
-{.smaller}
-HPC = High Performance Computing
-```
-
 ```{figure} ../_static/HPCaaS.png
 ---
 figclass: margin-caption
@@ -42,7 +37,7 @@ Controller collects jobs from users, schedules and batch-distributes them.
 
 In High Performance Computing (HPC), multiple independent computers (referred to as "nodes") are aggregated to act as a single system, enabling concurrent (parallel) and distributed processing at a massive scale.
 
-The resulting clusters — also referred to as supercomputers, or high performance computers — form the backbone of modern research infrastructure and have become a cornerstone of advanced IT, particularly in the training of Artificial Intelligence models.
+The resulting clusters (also referred to as supercomputers, or high performance computers) form the backbone of modern research infrastructure and have become a cornerstone of advanced IT, particularly in the training of Artificial Intelligence models.
 
 To build a performant cluster, HPC relies heavily on ultra-low latency communication between nodes.
 Consequently, specialized high-speed interconnects (networking) are just as critical to the system's speed as the processors themselves.
