@@ -38,7 +38,7 @@ Usage as with a physical server.
 
 {% else %}
 
-This model provides fundamental computing resources — such as virtual computers, block storage, and networking — in a fully virtualized manner.
+This model provides fundamental computing resources, such as virtual computers, block storage, and networking, in a fully virtualized manner.
 Ideally, it offers the user full administrative control (root access) from the operating system upward, creating the impression of maintaining a dedicated, private machine.
 
 This approach allows for the usage of computers on demand without the need to purchase or maintain physical hardware.

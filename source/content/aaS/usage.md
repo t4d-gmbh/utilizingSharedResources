@@ -47,7 +47,7 @@ The phrasal template arguably originated from the concept of Software as a Servi
 As of February 2026, the template's own Wikipedia page[^1] lists over 35 distinct business models using this nomenclature.
 
 In a scientific context, especially in computational sciences, this paradigm has considerably altered research infrastructure.
-It shifts the heavy burden of managing physical hardware—power, cooling, maintenance, and networking—from the scientist to specialized providers.
+It shifts the heavy burden of managing physical hardwar like power, cooling, maintenance, and networking, from the scientist to specialized providers.
 This allows researchers to treat computing power not as a piece of equipment they must buy and repair, but as a flexible utility they consume.
 Consequently, scientists can focus on their specific domain questions rather than the intricacies of IT administration.
 
