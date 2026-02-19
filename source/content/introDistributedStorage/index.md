@@ -1,25 +1,40 @@
 # Distributed Storage
 
-{% if slides %}
+{% if slide %}
 <!-- BUILDING THE SLIDES -->
 ```{toctree}
-:maxdepth: 3
+:maxdepth: 1
 
-<!-- ./someFile -->
-<!-- ./someFolder/index -->
+./sharedStorageTypes
+./blockStorage
+./objectStorage
+./sharedFilesystem
+./ephemeralStorage
+
 ```
 
 {% else %}
 <!-- BUILDING THE PAGES -->
 
-<!--
-```{include} ./multiTenancy.md
+```{include} ./sharedStorageTypes.md
 ```
-```{include} ./someFolde/fileA.md
+```{include} ./blockStorage.md
 ```
-```{include} ./someFolde/fileB.md
+```{include} ./objectStorage.md
 ```
--->
+```{include} ./sharedFilesystem.md
+```
+```{include} ./ephemeralStorage.md
+```
+{.smaller}
+**Sources**:  
+<https://docs.ceph.com/en/>   
+<https://docs.openstack.org/>  
+<https://slurm.schedmd.com/documentation.html>  
+<https://wiki.lustre.org/Main_Page>  
 {% endif %}
 
+{% if slide %}
+{% else %}
+{% endif %}
 
