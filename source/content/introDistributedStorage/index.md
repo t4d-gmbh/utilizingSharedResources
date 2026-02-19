@@ -3,12 +3,14 @@
 {% if slide %}
 <!-- BUILDING THE SLIDES -->
 ```{toctree}
-:maxdepth: 3
+:maxdepth: 1
 
 ./sharedStorageTypes
 ./blockStorage
 ./objectStorage
 ./sharedFilesystem
+./ephemeralStorage
+
 ```
 
 {% else %}
@@ -21,6 +23,8 @@
 ```{include} ./objectStorage.md
 ```
 ```{include} ./sharedFilesystem.md
+```
+```{include} ./ephemeralStorage.md
 ```
 {.smaller}
 **Sources**:  

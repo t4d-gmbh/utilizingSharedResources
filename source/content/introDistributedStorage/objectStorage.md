@@ -1,3 +1,4 @@
+(ObjectStorage)=
 ### Object Storage
 
 :::{admonition} "Infinite Bucket"
