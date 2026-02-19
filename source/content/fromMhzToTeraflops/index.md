@@ -7,7 +7,6 @@
 ```{toctree}
 :maxdepth: 3
 
-./growing
 ./question
 ./industryReply
 ./challenges
