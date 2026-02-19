@@ -7,7 +7,8 @@
 
 ./sharedStorageTypes
 ./blockStorage
-./objectStorage.md
+./objectStorage
+./sharedFilesystem
 ```
 
 {% else %}
@@ -18,6 +19,8 @@
 ```{include} ./blockStorage.md
 ```
 ```{include} ./objectStorage.md
+```
+```{include} ./sharedFilesystem.md
 ```
 {.smaller}
 **Sources**:  

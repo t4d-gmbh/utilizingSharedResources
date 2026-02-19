@@ -24,23 +24,6 @@ To make good use of such infrastructures and help to maintain system stability, 
 - **Ephemeral Storage**
 
 
-### Persistent Shared Filesystems
-
-```{admonition} Cloud NAS
-:class: tip, margin
-A standard network folder where your code lives, safe and accessible from every node like a local directory.
-```
-
-While Object Storage is efficient for automated retrieval, users and legacy applications often require the familiarity of a directory tree.
-A centralized location is needed to store code, configuration files, and shared scripts that behave like a standard hard drive but remain accessible across the network.
-This is the Persistent Shared Filesystem.
-
-Often referred to as the "Home Directory," this storage layer (managed by Manila in OpenStack or CephFS in Ceph clusters) is fully POSIX-compliant.
-Standard terminal commands like `ls`, `grep`, and `cp` function as expected.
-The priority of this tier is reliability and data safety over raw throughput.
-It ensures that changes in your home folder (`~/`) on a login node are immediately available on compute nodes.
-It seamlessly handles file locking and permissions to allow collaboration without data conflicts.
-
 ### Ephemeral Storage
 
 ```{admonition} The "Scratchpad"
