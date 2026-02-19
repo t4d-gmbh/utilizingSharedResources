@@ -9,12 +9,12 @@
 {% if page %}
 
 Multitenancy enables a single underlying infrastructure to serve multiple distinct users (tenants) simultaneously.
-In modern infrastructures this is sometimes achieved through a Multi-instance architecture, where the concurrent capabilities of the hardware are used to spawn isolated environments — or instances — for each tenant.
+In modern infrastructures this is sometimes achieved through a Multi-instance architecture, where the concurrent capabilities of the hardware are used to spawn isolated environments (or instances) for each tenant.
 While the physical resources (CPU, RAM, Storage) are shared at the lowest level, each tenant interacts with their own private instance, unaware of the others.
 
 By pooling the workloads of diverse users onto a single shared infrastructure, the system can leverage concurrency to fill the 'idle gaps' left by one user with the active tasks of another.
 
-In this model, the intense but intermittent demands of multiple tenants are interleaved. When one tenant pauses (e.g., waiting for data), the system instantly switches context to process another tenant's request. This ensures that the expensive, high-performance components—such as the CPU, cache, and specialized accelerators—are kept in near-constant use.
+In this model, the intense but intermittent demands of multiple tenants are interleaved. When one tenant pauses (e.g., waiting for data), the system instantly switches context to process another tenant's request. This ensures that the expensive, high-performance components, such as the CPU, cache, and specialized accelerators, are kept in near-constant use.
 
 Consequently, multitenancy transforms the risk of hardware complexity into an economic advantage: the immense cost of a powerful, specialized computer is no longer a burden for a single user, but is amortized across many, making high-performance computing accessible and affordable for all.
 
