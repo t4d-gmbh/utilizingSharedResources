@@ -1,11 +1,33 @@
 ## Multitenancy
 
+{% if slide %}
+:::::{grid} 2
+::::{grid-item}
 :::{figure} ./../_static/multitenancy.png
 :alt: to multitenancy
 :width: 100%
-{% if page %}:figclass: margin{% endif %}
+:::
+::::
+
+::::{grid-item}
+:::{admonition} What is a Tenant?
+:class: tip smaller
+A **tenant** is an independent user or organization that shares a computing system with others while maintaining logical isolation. Each tenant operates as if they have their own dedicated environment.
+:::
+::::
+:::::
+{% else %}
+:::{figure} ./../_static/multitenancy.png
+:alt: to multitenancy
+:width: 100%
+:figclass: margin
 :::
 
+:::{admonition} What is a Tenant?
+:class: margin tip
+A **tenant** is an independent user or organization that shares a computing system with others while maintaining logical isolation. Each tenant operates as if they have their own dedicated environment.
+:::
+{% endif %}
 
 {% if page %}
 
