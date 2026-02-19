@@ -3,9 +3,11 @@
 ```{toctree}
 :maxdepth: 3
 
+./cluster
 ./hpc
 ./slurm
-./cluster
+./cloudOperatingSystem
+./virtualization
 ./container
 ./dockerfile
 ```

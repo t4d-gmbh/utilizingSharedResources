@@ -2,25 +2,34 @@
 <!-- Concurrency -->
 
 
-{% if slides %}
+{% if slide %}
 <!-- BUILDING THE SLIDES -->
 ```{toctree}
 :maxdepth: 3
 
-<!-- ./someFile -->
-<!-- ./someFolder/index -->
+./question
+./industryReply
+./challenges
+./efficiency
 ```
 
 {% else %}
 <!-- BUILDING THE PAGES -->
 
-<!--
-```{include} ./multiTenancy.md
+```{include} ./question.md
 ```
-```{include} ./someFolde/fileA.md
+```{include} ./industryReply.md
 ```
-```{include} ./someFolde/fileB.md
+```{include} ./challenges.md
 ```
--->
+```{include} ./efficiency.md
+```
+
+{.smaller}
+**Sources:**  
+<https://en.wikipedia.org/wiki/Concurrency_(computer_science)>  
+<https://en.wikipedia.org/wiki/Multiprocessing>  
+<https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)>  
+<https://en.wikipedia.org/wiki/Instruction-level_parallelism>  
 {% endif %}
 
