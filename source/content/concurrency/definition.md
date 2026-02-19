@@ -116,5 +116,3 @@ Consider a program that needs to download and process multiple large datasets:
 This illustrates how concurrency exploits natural waiting periods. While the CPU processes one dataset, the network interface downloads another, keeping both resources actively utilized rather than leaving one idle.
 {% endif %}
 
-{% endif %}
-
