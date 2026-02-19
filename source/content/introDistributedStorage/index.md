@@ -7,6 +7,7 @@
 
 ./sharedStorageTypes
 ./blockStorage
+./objectStorage.md
 ```
 
 {% else %}
@@ -15,6 +16,8 @@
 ```{include} ./sharedStorageTypes.md
 ```
 ```{include} ./blockStorage.md
+```
+```{include} ./objectStorage.md
 ```
 {.smaller}
 **Sources**:  

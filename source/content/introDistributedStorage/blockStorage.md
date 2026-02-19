@@ -9,7 +9,7 @@ Think of Block Storage as a raw, unformatted USB drive that is plugged permanent
 {% endif %}
 :::
 {% if slide %}
-```{epigraph}
+```{compound}
 {.centered}
 Exclusive, highly compatible virtual hard drive for fast I/O.
 ```
@@ -28,17 +28,6 @@ This exclusivity allows for fast and low-latency access, making it the perfect h
 {% endif %}
 
 
-{% if slide %}
-
-```{admonition} Usage
-:class: margin, note 
-- Attach the volume (i.e. block)
-- Partition it
-- Cerate a filesystem
-- Mount the filesystem
-```
-
-{% endif %}
 
 ::::{grid}
 :gutter: 2
@@ -57,7 +46,6 @@ In Block Storage Ceph splits up a block into fixed-size junks (e.g., 4MB) that a
 {% endif %}
 
 
-
 :::
 :::{grid-item}
 :columns: {% if page %}6{% else %}12{% endif %}
@@ -71,9 +59,17 @@ In Block Storage Ceph splits up a block into fixed-size junks (e.g., 4MB) that a
 :::
 ::::
 
-{% if page %}
 
 #### Usage
+
+{% if slide %}
+{.smaller}
+- Attach the volume (i.e. block) via GUI/SDK
+- Partition it `parted /dev/sdX mklabel gpt`
+- Cerate a filesystem `mkfs.ext4 -L mylabel /dev/sdxY`
+- Mount the filesystem `mount /dev/sdxY /mnt/mydisk`
+
+{% else %}
 
 In a OpenStack cloud, Block Storage is managed by an application called _Cinder_.
 When a volume is requested, Cinder talks to the backend (like Ceph) to reserve the blocks and attaches them to to the target VM via iSCSI or KVM virtio.
@@ -105,10 +101,10 @@ Finally, the filesystem need to be mounted so that it can be used (use `mount` f
 :::{grid-item-card} Databases
 :class: sd-shadow-s
 :::
-:::{grid-item-card} **Persistent Volumes**
+:::{grid-item-card} Persistent Volumes
 :class: sd-shadow-s
 :::
-:::{grid-item-card} **High-Speed Scratch**
+:::{grid-item-card} High-Speed Scratch
 :class: sd-shadow-s
 :::
 

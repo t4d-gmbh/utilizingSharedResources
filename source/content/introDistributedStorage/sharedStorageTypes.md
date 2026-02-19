@@ -24,22 +24,6 @@ To make good use of such infrastructures and help to maintain system stability, 
 - **Ephemeral Storage**
 
 
-### Object Storage
-```{admonition} "Infinite Bucket" 
-:class: tip, margin
-Simply toss in your data, neither worry about size nor file counts.
-```
-
-For massive datasets or large numbers of individual files, Block Storage becomes inefficient due to its lack of scalability and inability to be shared across multiple nodes.
-Object Storage addresses this need.
-
-Rather than organizing data in a hierarchical directory tree, Object Storage stores data as flat objects accessed via an API (such as HTTP REST), identified by a unique ID.
-It is designed for durability and infinite scale rather than rapid modification; data is typically written once and read many times.
-In many ecosystems, this is provided by OpenStack Swift or Ceph RGW (RADOS Gateway), which offer an S3-compatible interface.
-This tier, sometimes also alled "Data Lake" serves in any sort of computational workflow.
-It is a repository for raw logs, images, and archives that must be accessible from any node in the cluster but do not require instant modification.
-
-
 ### Persistent Shared Filesystems
 
 ```{admonition} Cloud NAS
