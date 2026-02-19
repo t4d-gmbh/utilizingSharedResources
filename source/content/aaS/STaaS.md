@@ -37,8 +37,11 @@ Implement redundancy and high-availability into the software layer.
 {% else %}
 
 Storage as a Service (STaaS) changes data management by decoupling storage capacity from individual compute nodes.
-Instead of managing physical disks attached to servers, users consume storage as a flexible, on - demand utility — much like electricity.
-Also here, the principle is to abstract the physical complexity of hard drives, RAID controllers, and redundancy is hidden behind a software layer, allowing the system to present a unified pool of infinite capacity.
+Instead of managing physical disks attached to servers, users consume storage as a flexible, on - demand utility, much like electricity.
+Also here, the principle is to abstract the physical complexity of hard drives, RAID controllers[^1], and redundancy is hidden behind a software layer, allowing the system to present a unified pool of infinite capacity.
+```{margin}
+[^1] RAID (Redundant Array of Independent Disks) controllers are hardware or software components that manage multiple disk drives as a single logical unit, providing data redundancy, improved performance, or both by distributing data across the drives.
+```
 For STaaS to function effectively, it relies heavily on high-performance networking, as data must travel instantly between the storage pool and the compute nodes without inducing latency that would starve the processors.
 
 This model represents a major technological shift from Hardware-Defined to Software-Defined Storage (SDS).
