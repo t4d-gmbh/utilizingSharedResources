@@ -32,7 +32,7 @@ Single file that acts as the "hard drive".
 
 {% else %}
 
-A Virtual Machine (VM) is more than just a Guest OS; it is a complete, software-defined computer.
+A VM is more than just a Guest OS; it is a complete, software-defined computer.
 A VM is essentially a collection of distinct components that simulate the anatomy of a physical machine.
 
 
@@ -67,6 +67,6 @@ It is the persistent storage container that holds the Guest OS, the bootloader, 
 
 The defining characteristic of this system is **Hardware Emulation**.
 The Guest OS operates under the illusion that it is interacting with real, physical hardware components.
-In reality, the Hypervisor intercepts these instructions—such as writing a file to the "disk"—and translates them into valid calls for the underlying Host Operating System.
+In reality, the Hypervisor intercepts these instructions (such as writing a file to the "disk") and translates them into valid calls for the underlying Host Operating System.
 
 {% endif %}

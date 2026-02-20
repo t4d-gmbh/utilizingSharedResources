@@ -92,7 +92,7 @@ In a traditional virtualization setup, every guest requires its own full OS kern
 In contrast, OS-level virtualization leverages the existing kernel of the host machine to run multiple "guests" simultaneously.
 This removes the need for an additional layer of heavy system software, allowing the environments to start in milliseconds rather than minutes.
 
-To ensure stability and security, the host kernel creates isolated User Spaces — virtualized instances of the operating system's memory and process environment.
+To ensure stability and security, the host kernel creates isolated User Spaces, which are basically virtualized instances of the operating system's memory and process environment.
 This isolation is achieved through two key kernel features:
 
 **Namespaces (Isolation of View)**:  
