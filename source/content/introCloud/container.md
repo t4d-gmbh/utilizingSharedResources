@@ -53,7 +53,7 @@ It consists of three essential components: the **Image**, the **Manifest**, and 
 
 #### The Image: A Layered Filesystem  
 A container starts as a static file known as the **Image**.
-Unlike a Virtual Machine disk, which is a single, monolithic file containing an entire Operating System, a container image is built using a unique **Layered Approach**.
+Unlike a Virtual Machine, which is a single, monolithic file containing an entire operating system, a container image is built using a unique **Layered Approach**.
 
 In this model, the filesystem is constructed by stacking multiple read-only changes on top of one another.
 When the container engine reads the image, it uses a Union Filesystem to merge these separate layers into a single, cohesive view.
