@@ -11,6 +11,7 @@ primerOnParallelism/index
 fromConcurrencyToMultitenancy/index
 resourceSharingPrinciple/index
 aaS/index
+virtualization/index
 introCloud/index
 introCluster/index
 introDistributedStorage/index

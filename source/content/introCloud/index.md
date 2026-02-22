@@ -7,9 +7,6 @@ Infrastructure as a Service (IaaS) products are often simply called: Clouds
 ```{toctree}
 :maxdepth: 3
 
-./virtualization
-./vm
-./container
 ./theCloudSchema
 ./cloudFeatures
 ./cloudOS
@@ -18,12 +15,6 @@ Infrastructure as a Service (IaaS) products are often simply called: Clouds
 {% else %}
 <!-- BUILDING THE PAGES -->
 
-```{include} ./virtualization.md
-```
-```{include} ./vm.md
-```
-```{include} ./container.md
-```
 ```{include} ./theCloudSchema.md
 ```
 ```{include} ./cloudFeatures.md
@@ -33,8 +24,6 @@ Infrastructure as a Service (IaaS) products are often simply called: Clouds
 
 {.smaller}
 **Sources**:  
-<https://en.wikipedia.org/wiki/Virtualization>  
-<https://en.wikipedia.org/wiki/Hardware_virtualization>  
 <https://en.wikipedia.org/wiki/Hypervisor>  
 <https://docs.openstack.org/2025.2>  
 {% endif %}
