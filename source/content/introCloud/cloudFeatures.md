@@ -19,11 +19,13 @@ Explained are the features present in OpenStack:
 ### Storage Management
 In a Cloud, storage is not a monolithic entity, neither is it restricted to the available disk space on a specific host machine, instead it is split into distinct services addressing different persistence needs:
 
-**Ephemeral Storage** (Nova):
+**Ephemeral Storage**[^1] (Nova):
 This can be set-up locally, or shared.
 
+[^1]: Ephemeral: lasting for a very short time.
+
 In the local setup, when a VM is spawned, OpenStack (via Nova) creates a temporary "scratchpad" disk on the host server.
-This disk is tightly coupled to the lifecycle of the VM; if the VM is terminated, this storage—and all data inside it—is deleted permanently.
+This disk is tightly coupled to the lifecycle of the VM; if the VM is terminated, this storage (and all data inside it) is deleted permanently.
 It contains the `/home` folder and is typically used for the Operating System files and temporary caches.
 
 :::{tip}
