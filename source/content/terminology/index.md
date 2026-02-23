@@ -6,9 +6,8 @@
 ./cluster
 ./hpc
 ./slurm
-./cluster
+./cloudOperatingSystem
+./virtualization
 ./container
 ./dockerfile
-./virtualization
-./cloudOperatingSystem
 ```
