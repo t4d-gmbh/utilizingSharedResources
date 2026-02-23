@@ -8,10 +8,7 @@
 ./slurm
 ./cluster
 ./container
-<<<<<<< HEAD
 ./dockerfile
-=======
 ./virtualization
 ./cloudOperatingSystem
->>>>>>> main
 ```
