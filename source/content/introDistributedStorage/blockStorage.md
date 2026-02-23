@@ -42,7 +42,7 @@ This exclusivity allows for fast and low-latency access, making it the perfect h
 
 Block Storage is handled by a storage cluster, connecting multiple storage devices (computer) together as a single unit.
 A common, open-source software that can create a storage cluster on top of connected computers is [Ceph](https://ceph.io).
-In Block Storage Ceph splits up a block into fixed-size junks (e.g., 4MB) that are then distributed in a redundant manner (usually 3 copies of each block) across the physical disks in the storage cluster.
+In Block Storage, Ceph splits up a block into fixed-size junks (e.g., 4MB) that are then distributed in a redundant manner (usually 3 copies of each block) across the physical disks in the storage cluster.
 
 {% endif %}
 
@@ -84,7 +84,7 @@ rbd create mydisk --size 100G
 :::
 
 A machine, virtual or not, can also interface directly with a Ceph Block Storage via a kernel module called `rbd`.
-In a virtualized environment this can be done directly form a VM or, if access allows it, on the Hypervisor which can then "present" the block storage to the VM as a physical, physical disk.
+In a virtualized environment this can be done directly from a VM or, if access allows it, on the Hypervisor which can then "present" the block storage to the VM as a physical disk.
 In practice, attaching a block storage via Cinder, the Hypervisor or directly on the VM using `rbd` should show little to not difference in terms of performance.
 
 Once a block is added to a machine, it becomes visible as a device (e.g. under `/dev/sdX`).

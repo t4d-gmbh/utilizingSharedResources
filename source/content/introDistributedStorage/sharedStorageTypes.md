@@ -15,7 +15,7 @@ Less visible, but equally important is the robust strategy to store and access d
 
 [^1]: <https://en.wikipedia.org/wiki/TOP500>
 
-In distributed systems, storage is often present in multiple distinct tiers, and understanding the differences between them is not just an architectural detail — it is a crucial competency.
+In distributed systems, storage is often present in multiple distinct tiers, and understanding the differences between them is not just an architectural detail but a crucial competency.
 
 Choosing the wrong storage type can not just mean slow job; it can starve GPUs, waste expensive compute credits, and even severely affect the performance of an entire cluster.
 

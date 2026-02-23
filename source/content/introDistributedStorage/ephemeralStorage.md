@@ -26,12 +26,12 @@ In practice, Ephemeral Storage comes in two distinct flavors:
 
 **Global Scratch**:
 
-In large clusters where a job may span hundreds of nodes, standard persistent shard filesystems are often too slow to handle the aggregate I/O demand.
+In large clusters where a job may span hundreds of nodes, standard persistent shared filesystems are often too slow to handle the aggregate I/O demand.
 The solution is an Ephemeral Shared Filesystem (utilizing technologies like Lustre, GPFS, or a flash-optimized CephFS pool).
 
 This tier allows hundreds of nodes to read and write to the same dataset simultaneously.
 However, because high-performance storage is a limited resource, it is usually governed by strict "Purge Policies".
-Data stored here — often in directories like `/scratch/<user>` — is automatically deleted after a set period (e.g., 30 days).
+Data stored here (often in directories like `/scratch/<user>`) is automatically deleted after a set period (e.g., 30 days).
 It serves as scratchpad for heavy calculations, but never as a permanent storage for results.
 
 **Local Scratch**:
@@ -89,7 +89,7 @@ Interacting with Ephemeral Storage depends entirely on whether you are using the
 
 For **Global Scratch**, access feels identical to a standard shared network drive. The path is typically a well-known mount point, such as `/scratch/` or `/lustre/scratch`. Users manually copy (stage) their heavy datasets to this location before executing a distributed job. The critical operational rule here is memory: users *must* script their workflows to copy the final output data back to persistent storage (like S3 or their Home Directory) before the automated purge scripts permanently delete it.
 
-For **Local Scratch**, the workflow is highly dynamic and usually managed by the workload scheduler (like Slurm). When a compute job starts, the scheduler creates a private, temporary folder on the node's physical NVMe drive. It exposes this path to your script via an environment variable—most commonly `$TMPDIR`. Applications and scripts should be configured to write their temporary files, cache, or RAM-spillover to this variable. The exact millisecond the job completes or fails, the scheduler forcefully runs `rm -rf` on that directory, isolating your data from the next user.
+For **Local Scratch**, the workflow is highly dynamic and usually managed by the workload scheduler (like Slurm). When a compute job starts, the scheduler creates a private, temporary folder on the node's physical NVMe drive. It exposes this path to your script via an environment variable (most commonly `$TMPDIR`). Applications and scripts should be configured to write their temporary files, cache, or RAM-spillover to this variable. The exact millisecond the job completes or fails, the scheduler forcefully runs `rm -rf` on that directory, isolating your data from the next user.
 
 {% endif %}
 

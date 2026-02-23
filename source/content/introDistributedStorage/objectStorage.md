@@ -82,7 +82,7 @@ These objects are then mapped via a hashing algorithm and distributed in a redun
 
 In an OpenStack cloud, Object Storage is typically managed by an application called *Swift* (though many deployments use Ceph's RADOS Gateway for added S3 compatibility).
 When a bucket or object is requested, a specialized API server acting as the gateway (such as the Ceph RADOS Gateway daemon or the OpenStack Swift proxy) intercepts the connection.
-This gateway manages the namespace — the flat, globally unique mapping of bucket names and object URLs (e.g., `https://storage.cloud/mybucket/mydata/dataset.csv`) — authenticates the provided API keys, and translates the HTTP REST commands into the underlying storage cluster's protocol.
+This gateway manages the namespace, which is the flat, globally unique mapping of bucket names and object URLs (e.g., `https://storage.cloud/mybucket/mydata/dataset.csv`), authenticates the provided API keys, and translates the HTTP REST commands into the underlying storage cluster's protocol.
 
 :::{admonition} `mc` ([MinIO Client](http://mindev.org/minio-mc.html)) Example
 :class: margin tip
