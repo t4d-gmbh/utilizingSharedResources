@@ -1,7 +1,9 @@
 ## Slurm Cluster Architecture
 
 
-[Slurm](#slurm) is essentially a collection of distinct daemons and tools that simulate a single, unified computing entity.
+[Slurm](#slurm) is essentially a collection of distinct daemons[^1] and tools that simulate a single, unified computing entity.
+
+[^1]: A daemon is a background process that runs continuously on a server, waiting to handle requests or perform scheduled tasks without direct user interaction.
 
 
 ```{figure} ./../_static/slurmArchitecture.png
