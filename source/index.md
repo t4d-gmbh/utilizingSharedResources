@@ -1,25 +1,18 @@
 ```{include} ../README.md
 :end-before: <!-- include-before -->
+
 ```
 
-{% if build == "slides" %}
-:::{admonition} Authors
-:class: note, margin
-Dr. Jonas I. Liechti  
-Dr. Matteo Delucchi
-:::
+This is <img src="./_static/T4D_logo.svg" alt="T4D" width="25" height="25">'s introduction to modern computer infrastructures that are commonly found and used in computational science.
 
-{% else %}
 ### Authors
 
-**Dr. Jonas I. Liechti**  
-**Dr. Matteo Delucchi**  
-{% endif %}
+**Dr. [Jonas I. Liechti](https://github.com/j-i-l)**  
+**Dr. [Matteo Delucchi](https://github.com/matteodelucchi)**  
 
 
-### Content
 ```{toctree}
-:maxdepth: {% if build == "slides" %}1{% else %}4{% endif %}
+:hidden:
 
 content/index
 ```
