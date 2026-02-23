@@ -16,7 +16,7 @@ course_logo = {
 # -- name your project
 project = 'Utilizing Shared Resources'
 # -- provide authorship info
-author = ' Jonas I. Liechti; Matteo Delucchi'
+author = 'Jonas I. Liechti; Matteo Delucchi'
 # -- optionally adapt copyright
 # ---OPTIONAL ----------------------------------------------------------------
 # -- custom page url for own domain

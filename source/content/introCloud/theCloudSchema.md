@@ -19,6 +19,6 @@ This is the direct interaction with the active workload.
 While the Management GUI often provides a fallback "Console Access" (simulating a physical monitor via VNC), day-to-day operations are achieved through standard protocols like SSH (for Linux), RDP (for Windows), or application-level interfaces (e.g., HTTPS for JupyterLab).
 
 The cloud operating system acts as orchestrator allocating the necessary resources to the users requests.
-It manages the life-cycles of VMs including backups, snapshots and shelfing (store a switched of VM for later use).
+It manages the life-cycles of VMs including backups, snapshots and shelfing (store a switched-off-VM for later use).
 
 {% endif %}

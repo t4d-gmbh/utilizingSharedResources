@@ -6,7 +6,7 @@ This is <img src="./source/_static/T4D_logo.svg" alt="T4D" width="25" height="25
 
 ---
 
-_You can this material and the [related web content](Phttps://t4d-gmbh.github.io/utilizingSharedResources/) as you please, as long as you cite this repository._
+_You can use this material and the [related web content](https://t4d-gmbh.github.io/utilizingSharedResources/) as you please, as long as you cite this repository._
 
 ---
 

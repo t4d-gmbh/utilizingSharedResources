@@ -11,9 +11,9 @@ This software (i.e. the abstraction layer) is called **Hypervisor** and intercep
 A Hypervisor provides the OS with all the information and interfaces the underlying hardware typically would, leading the OS to "believe" that it runs directly on hardware.
 The advantage of such a softer buffer between OS and computer comes from the flexibility that it allows in the declaration of the hardware specifications to the OS:
 A Hypervisor can report only a fraction of the actual hardware to the OS, effectively hindering the OS from accessing all physically available resources.
-This ultimately enable a single computer to host multiple (virtualized) Operating Systems, allowing for a better utilization of the hardware.
+This ultimately enables a single computer to host multiple (virtualized) Operating Systems, allowing for a better utilization of the hardware.
 
-From a users perspective a virtualization layer allow to spawn up a OS with customized resources available.
+From a users perspective a virtualization layer allows to spawn up a OS with customized resources available.
 In addition the virtualization layer allows to create snapshots of the (virtualized) Operating System that can be stored, shared and duplicated easily.
 
 There exist multiple Hypervisor software products and not all work identically.
@@ -92,7 +92,7 @@ In a traditional virtualization setup, every guest requires its own full OS kern
 In contrast, OS-level virtualization leverages the existing kernel of the host machine to run multiple "guests" simultaneously.
 This removes the need for an additional layer of heavy system software, allowing the environments to start in milliseconds rather than minutes.
 
-To ensure stability and security, the host kernel creates isolated User Spaces — virtualized instances of the operating system's memory and process environment.
+To ensure stability and security, the host kernel creates isolated User Spaces, which are basically virtualized instances of the operating system's memory and process environment.
 This isolation is achieved through two key kernel features:
 
 **Namespaces (Isolation of View)**:  
