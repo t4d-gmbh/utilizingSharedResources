@@ -24,7 +24,7 @@ In an HPC Cluster, storage is not a monolithic entity, neither is it restricted 
 **Shared Home Directory (Ceph):**
 This is the default entry point for any user logging into the system.
 In this shared setup, the user's home directory is hosted on a central storage cluster (typically backed by Ceph or a similar distributed filesystem).
-This filesystem is mounted across every single node—Head and Compute alike.
+This filesystem is mounted across every single node (Head and Compute alike).
 This ensures that configuration files, source code, and lightweight virtual environments are instantly available regardless of where a job is scheduled to run.
 However, similar to cloud shared storage, every read/write operation travels through the network, making it suboptimal for heavy I/O operations during processing.
 
@@ -44,7 +44,7 @@ This flexibility allows for the precise tailoring of hardware to the code's requ
 This flexibility, however, presents a scheduling challenge: the more specific and massive the resource request, the longer the job may sit in the pending queue waiting for that exact combination of hardware to become available.
 
 **Job Arrays and Management:**
-For tasks requiring high throughput—such as hyperparameter tuning or processing thousands of individual data files—Slurm implements Job Arrays.
+For tasks requiring high throughput, such as hyperparameter tuning or processing thousands of individual data files, Slurm implements Job Arrays.
 Instead of manually submitting hundreds of individual jobs, a single array definition spawns multiple "tasks" that share the same resource requirements but operate on different input data.
 This allows the scheduler to manage thousands of processes as a single logical unit, filling available gaps in the cluster's capacity efficiently.
 

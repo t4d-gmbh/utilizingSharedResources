@@ -18,16 +18,16 @@ An HPC Cluster is essentially a collection of distinct physical machines that si
 
 First, the Cluster relies on the **Login Nodes** (or Head Nodes), which act as the system’s gateway.  
 These specific servers serve as the users "control room", specifying where job submissions, script editing, and software environment management occur.
-These nodes can be comparet to the terminal on a local laptop, but with one critical rule: they are for orchestration, not calculation!
+These nodes can be compared to the terminal on a local laptop, but with one critical rule: they are for orchestration, not calculation!
 Login Nodes are the interface where resource definitions are made, such as the number of GPUs, the amount of RAM, or the wall-time for a training run.
 
 Second, the Cluster possesses a **Workload Manager** (or Scheduler).  
 Just like a project manager assigning tasks to a team, this critical piece of software (often Slurm or PBS) acts as the broker between the code and the hardware.
-It reads the "job scripts" — the blueprints declaring requirements — and places the task into a queue.
-It waits until the specific combination of requested resources becomes available before dispatching the job to the hardware.
+It reads the "job scripts" (the blueprints that declare requirements) and places the task into a queue.
+It waits untill the specific combination of requested resources becomes available before dispatching the job to the hardware.
 
 Third, the Cluster is built on **Compute Nodes**, which act as the system's processing power.  
-These are often multiple racks of distinct, powerful servers — the digital equivalent of the CPU and GPU in a workstation, but scaled up significantly.
+These are often multiple racks of distinct, powerful servers. These are roughly speaking the digital equivalent of the CPU and GPU in a workstation, but scaled up significantly.
 This is where the calculation actually happens; when the scheduler dispatches a job, the Python or R code executes on the specific CPUs or GPUs of these distinct machines.
 
 Finally, there is the **Shared Storage**, which is the digital equivalent of the physical hard drive found in a standard computer.  
