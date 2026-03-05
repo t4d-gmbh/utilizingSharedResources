@@ -10,7 +10,6 @@ challenges/index
 introComputerChips/index
 fromMhzToTeraflops/index
 concurrency/index
-primerOnParallelism/index
 fromConcurrencyToService/index
 aaS/index
 virtualization/index
