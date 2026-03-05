@@ -9,6 +9,8 @@
 
 ./definition
 ./issues
+./conceptualFramework
+./architectureLevels
 ```
 
 {% else %}
@@ -17,6 +19,10 @@
 ```{include} ./definition.md
 ```
 ```{include} ./issues.md
+```
+```{include} ./conceptualFramework.md
+```
+```{include} ./architectureLevels.md
 ```
 
 {.smaller}
