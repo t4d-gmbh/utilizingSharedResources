@@ -10,6 +10,7 @@
 ./definition
 ./issues
 ./conceptualFramework
+./processTreadCoroutine.md
 ./architectureLevels
 ```
 
@@ -21,6 +22,8 @@
 ```{include} ./issues.md
 ```
 ```{include} ./conceptualFramework.md
+```
+```{include} ./processTreadCoroutine.md
 ```
 ```{include} ./architectureLevels.md
 ```

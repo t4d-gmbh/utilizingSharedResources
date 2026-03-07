@@ -1,109 +1,108 @@
-{% if build == "slides" %}
+### Concurrency Workflow
 
-## Conceptual Framework
+::::{grid}
+:gutter: 2
 
-:::::{grid} 1 1 2 2
-:gutter: 3
+:::{grid-item}
+:columns: 7
+:class: sd-m-auto
 
-::::{grid-item-card} Concurrency vs. Parallelism
-**Concurrency**: Switching between tasks  
-**Parallelism**: Simultaneous execution
+```{image} ./../_static/concurrencyOrchestration.png
+:alt: Orchestration
+:width: 100%
 
-*Limited by physical cores*
-::::
-
-::::{grid-item-card} Processes vs. Threads
-**Processes**: Isolated, own memory  
-**Threads**: Shared memory, faster
-
-*Choose based on isolation needs*
-::::
-
-:::::
-
-### The Parallel Workflow
-
-```{mermaid}
-graph LR
-    A[Orchestration] --> B1[Job 1]
-    A --> B2[Job 2]
-    A --> B3[Job 3]
-    B1 --> C[Aggregation]
-    B2 --> C
-    B3 --> C
 ```
 
-**Key**: Match problem coupling to architecture
-- **Embarrassingly parallel** → Easy to scale
-- **Tightly coupled** → Communication overhead
+:::
+:::{grid-item}
+:columns: 5
+:class: sd-m-auto
+
+{% if slide %}
+
+* **Concurrency**: Multiple tasks progressing over a period of time.
+* **Parallelism**: Multiple tasks executing truly simultaneously.
+
+**Challenge**:
+
+* Concurrency requires a strict orchestration ruling out indeterminacy.
+* Parallelism adds complexity by combining multiple processing "lanes".
 
 {% else %}
 
-## Concurrent vs. Parallel
+Concurrency can conceptually be broken up into 4 interacting parts:
 
-Think of eating cake while singing: you can do them *concurrently* (alternating bites and verses) but not *in parallel* (simultaneously).
+**Orchestration**: The overarching structure and schedule of tasks are determined. Dependencies are mapped, and necessary resources are identified before execution begins.  
 
-- **Concurrency**: Multiple tasks making progress by switching between them
-- **Parallelism**: Multiple tasks executing truly simultaneously
+{% endif %}
+:::
+::::
 
-True parallelism often needs multiple physical cores—one per task. This hardware constraint is why we can't just "make everything parallel."
+{% if page %}
 
-## Processes vs. Threads
+**Initiation**: The individual execution units (processes, threads, or coroutines) are spawned. Required data and specific execution parameters are distributed to these units.  
+**Job(s)**: The discrete, independent units of work are executed. This encompasses the actual computational processing or I/O operations performed by the allocated resources.  
+**Aggregation**: The outputs from the completed jobs are collected, synchronized, and consolidated. Execution is typically halted until all concurrent units have successfully reported their final state or results.  
 
-**Processes**: Independent program instances, each with their own memory space. They are isolated from one another and require explicit mechanisms for communication (Inter-Process Communication, or IPC).
+This pattern is remarkably universal, appearing in contexts ranging from multi-core laptop computations to large-scale distributed systems.
+Understanding this workflow helps identify where concurrency frameworks can be applied and what communication overhead to expect.
 
-**Threads**: Lightweight units sharing memory within a process. Fast communication but risk race conditions.
+Parallelism requires multiple physical cores — one per task executing simultaneously.
+This hardware constraint limits the universal application of parallel execution.
+However, modern software applications frequently perform I/O operations, await external input, execute network requests, or offload workloads to dedicated accelerators (e.g., GPUs).
+In such situations, the software thread does not need to occupy the CPU and can be paused (or blocked), freeing up CPU capacity until those auxiliary activities complete.
+This is where **concurrency becomes valuable even on a single core**: while one thread is blocked by I/O, CPU cycles can be reallocated to another thread to maintain progress.
+While this does not constitute true parallelism, overall throughput and responsiveness are improved by preventing CPU idling during slow operations.
 
-Which to use?
-- Need isolation → processes
-- Need fast communication → threads  
-- Language constraints matter (Python's Global Interpreter Lock limits threads)
+{% endif %}
 
-## The Typical Parallel Workflow
+## Parallelism
 
-Three stages:
+::::{grid} 1 1 2 2
+:gutter: 2
 
-1. **Orchestration**: Initial setup and task distribution across available resources
-2. **Individual Jobs**: Independent or semi-independent computation on distributed resources
-3. **Aggregation**: Collection and synthesis of results from all tasks
+:::{grid-item}
+:class: sd-m-auto
 
-```{mermaid}
-graph LR
-    A[Orchestration] --> B1[Job 1]
-    A --> B2[Job 2]
-    A --> B3[Job 3]
-    A --> B4[Job N]
-    B1 --> C[Aggregation]
-    B2 --> C
-    B3 --> C
+```{compound}
+{.centered}
+An analogy: eating and singing can be performed *concurrently* (alternating actions) but not *in parallel* (simultaneously).
+
 ```
 
-This pattern is remarkably universal, appearing in contexts ranging from multi-core laptop computations to large-scale distributed systems. Understanding this workflow helps identify where parallelization can be applied and what communication overhead to expect.
+:::
 
-### Information Exchange Requirements
+:::{grid-item-card} Concurrency & Parallelism
+:class: sd-m-auto
+
+**Concurrency**: Progress multiple tasks over a period of time.
+
+**Parallelism**: Simultaneous execution of multiple tasks.
+
+*Parallelism is a form of concurrency that is limited by the number of physical cores.*
+:::
+::::
+
+{% if page %}
 
 The efficiency of a parallel solution depends heavily on how frequently tasks must exchange information:
 
-- **Embarrassingly Parallel**: Tasks require little to no information exchange after orchestration. These problems are ideal for parallelization and easiest to implement efficiently.
+* **Embarrassingly Parallel**: Tasks require little to no information exchange after orchestration. These problems are ideal for parallelization and are the easiest to implement efficiently.
+* **Loosely Coupled**: Tasks need occasional information exchange (e.g., a few times per second or less). Communication overhead is manageable with proper architecture.
+* **Tightly Coupled** (Fine-grained parallelism): Tasks must exchange information frequently (e.g., many times per second). These scenarios are challenging to parallelize efficiently due to communication costs and synchronization overhead.
 
-- **Loosely Coupled**: Tasks need occasional information exchange (a few times per second or less). Communication overhead is manageable with proper architecture.
-
-- **Tightly Coupled** (Fine-grained parallelism): Tasks must exchange information frequently (many times per second). These scenarios are challenging to parallelize efficiently due to communication costs and synchronization overhead.
-
-As a general principle: **Start by determining if your problem is embarrassingly parallel**. If it is, parallelization is almost always worthwhile. For tightly coupled problems, carefully evaluate whether the communication overhead will negate the benefits of parallel execution.
+As a general principle: **Problem evaluation should begin by determining if the workload is embarrassingly parallel**. If so, parallelization is generally advantageous. For tightly coupled problems, the communication overhead must be carefully evaluated to ensure it does not negate the benefits of parallel execution.
 
 ### Information Flow in the Workflow
 
-Different stages of the parallelization workflow have different communication characteristics:
+Different stages of the parallelization workflow possess different communication characteristics:
 
-- **During Orchestration**: Nearly all parallel workflows require information dissemination to initialize tasks with appropriate parameters, data subsets, or configuration
-  
-- **During Execution**: Requirements vary greatly depending on problem coupling:
-  - Embarrassingly parallel jobs may need zero communication
-  - Tightly coupled jobs require continuous information exchange
-  
-- **During Aggregation**: Most workflows require collecting results from all tasks, though the volume can range from simple success/failure signals to large datasets
+* **During Initiation**: Nearly all parallel workflows require information dissemination to initialize tasks with appropriate parameters, data subsets, or configurations.
+* **During Execution**: Requirements vary greatly depending on problem coupling:
+  * Embarrassingly parallel jobs may require zero communication.
+  * Tightly coupled jobs require continuous information exchange.
+* **During Aggregation**: Most workflows require collecting results from all tasks, though the volume can range from simple success/failure signals to large datasets.
 
-Understanding these communication patterns helps in selecting appropriate hardware architectures and software frameworks for your specific use case.
+Understanding these communication patterns aids in the selection of appropriate hardware architectures and software frameworks for specific use cases.
 
 {% endif %}

@@ -1,6 +1,6 @@
-{% if build == "slides" %}
-
 ## Architectural Levels of Parallelism
+
+{% if slide %}
 
 :::::{grid} 1 1 3 3
 :gutter: 3
@@ -31,29 +31,16 @@ Flexible resources
 
 :::::
 
-### Multi-Level Parallelism
-
-```{mermaid}
-graph TB
-    O[Orchestration] --> M1[Machine 1<br/>8 cores]
-    O --> M2[Machine 2<br/>8 cores]
-    O --> M3[Machine N<br/>8 cores]
-    M1 --> C1[Core-level]
-    M2 --> C2[Core-level]
-    M3 --> C3[Core-level]
-```
-
-**Strategy**: Coarse-grained between machines, fine-grained within machines
 
 ```{tip}
-**Start small** → Test locally → Scale up
+Strictly separate **Orchestration**, **Initiation**, individual **Jobs** and **Aggregation** in your implementations.  
+Switching form intra-node to inter-node might only affect the **Orchestration** layer.
 ```
 
 {% else %}
 
-## Architectural Levels of Parallelism
-
-Parallelization can occur at multiple architectural levels, each with distinct characteristics, capabilities, and use cases. Understanding these levels helps you choose the right approach for your computational needs.
+Parallelization can occur at multiple architectural levels, each with distinct characteristics, capabilities, and use cases.
+Understanding these levels helps you choose the right approach for your computational needs.
 
 ### Multi-Core Architectures
 
@@ -157,16 +144,6 @@ In practice, cluster and cloud architectures consist of many networked multi-cor
 1. **Between machines**: Distributing independent jobs across multiple nodes or cloud instances
 2. **Within machines**: Each node/instance uses multi-core parallelism for its assigned task
 
-```{mermaid}
-graph TB
-    O[Orchestration Layer] --> M1[Machine 1<br/>8 cores]
-    O --> M2[Machine 2<br/>8 cores]
-    O --> M3[Machine N<br/>8 cores]
-    M1 --> C1[Core-level<br/>parallelism]
-    M2 --> C2[Core-level<br/>parallelism]
-    M3 --> C3[Core-level<br/>parallelism]
-```
-
 This hierarchical structure offers flexibility but requires careful planning:
 - Use coarse-grained parallelism between machines (minimize network communication)
 - Use fine-grained parallelism within each machine (leverage shared memory)
@@ -187,7 +164,8 @@ The appropriate architectural level depends on your problem characteristics:
 | GPU acceleration required | Cloud or specialized HPC nodes |
 
 ```{tip}
-**Start small**: Develop and test your parallelization approach on your local multi-core machine before scaling to clusters or cloud. This iterative approach helps identify issues early and reduces wasted resources.
+**Start small**: Develop and test your parallelization approach on your local multi-core machine before scaling to clusters or cloud.
+This iterative approach helps identify issues early and reduces wasted resources.
 ```
 
 {% endif %}
