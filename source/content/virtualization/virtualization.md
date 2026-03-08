@@ -17,13 +17,13 @@ From a users perspective a virtualization layer allows to spawn up a OS with cus
 In addition the virtualization layer allows to create snapshots of the (virtualized) Operating System that can be stored, shared and duplicated easily.
 
 There exist multiple Hypervisor software products and not all work identically.
-A common classification is to distinguish between Type 1 and Type 2 Hipervisors.
+A common classification is to distinguish between Type 1 and Type 2 Hypervisors.
 
 {% else %}
 
 ```{epigraph}
 {.centered}
-Hardware Virtualization decouples the OS from the physical hardware with an abstraction layer (Hipervisor), mimicking real hardware to the OS.  
+Hardware Virtualization decouples the OS from the physical hardware with an abstraction layer (Hypervisor), mimicking real hardware to the OS.  
 ```
 
 {% endif %}
@@ -53,7 +53,7 @@ _Adapted from <https://en.wikipedia.org/wiki/File:Hyperviseur.svg>_
 In a way they are the OS that runs actually on the host.
 Commonly known are KVM, Xen or VMware ESXi.
 
-**Type 2 hypervisors** (or _hosted_ hipervisors), on the other hand, run on top of an OS.
+**Type 2 hypervisors** (or _hosted_ hypervisors), on the other hand, run on top of an OS.
 Type 2 hypervisors can be installed just like one would install an application and usually provide a graphical interface for managing virtualaized OSs.
 Commonly known are VirtualBox, Parallel Desktop (MacOS only) and GNOME Boxes.
 
