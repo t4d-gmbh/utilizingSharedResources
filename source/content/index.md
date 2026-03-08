@@ -16,7 +16,6 @@ virtualization/index
 introCloud/index
 introCluster/index
 introDistributedStorage/index
-suitabilityChecklist/index
 {% if page %}
 terminology/index
 {% endif %}
