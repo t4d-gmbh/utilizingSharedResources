@@ -1,5 +1,5 @@
 {% if build == "slides" %}
-### Storeage Limitations
+### Storage Limitations
 {% else %}
 ## Storage Limitations
 {% endif %}
