@@ -67,6 +67,11 @@ Manual execution of multiple tasks quickly becomes impractical. Managing dozens 
 **Parallelism Types:** Embarrassingly parallel → Shared memory → Distributed
 {% endif %}
 
+:::{admonition} Simultaneously vs. Concurrently
+:class: margin
+Both terms mean *"at the same time,"* but **simultaneously** implies happening at the exact same instant, while **concurrently** suggests overlapping in time, often referring to parallel, coordinated, or extended processes. 
+:::
+
 {% if page %}
 Modern computing systems provide substantial parallel capacity through multiple CPU cores, multiple machines, and specialized architectures. However, exploiting this capacity requires that code and algorithms are designed for parallelism.
 
