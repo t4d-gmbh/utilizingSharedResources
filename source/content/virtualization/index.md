@@ -1,6 +1,6 @@
 # Virtualization
 
-Virtualization is the technology that allows multiple independent computing environments to run on shared physical hardware, enabling the flexible and efficient resource utilization that underpins modern scientific computing infrastructure.
+Virtualization is the **technology that allows multiple independent computing environments** to run on shared physical hardware, enabling the flexible and efficient resource utilization that underpins modern scientific computing infrastructure.
 
 {% if slide %}
 <!-- BUILDING THE SLIDES -->

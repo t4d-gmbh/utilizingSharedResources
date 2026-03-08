@@ -1,8 +1,12 @@
-## Virtualization
+---
+sd_hide_title: true
+---
+## Types
 
+### Hardware Virtualization
 {% if page %}
 
-Virtualization - **Hardware Virtualizaton** to be more precise - is the key concept in a cloud infrastructure.
+Hardware Virtualizaton is the key concept in a cloud infrastructure.
 It became broadly available for the standard x86 computer architecture in the early 2000s and lead to a profound change in how computer infrastructures were utilized.
 
 The most common form, Hardware Virtualization, aims to decouple Operating System (OS) and applications from the physical hardware by providing an abstraction layer, mimicking real hardware to the virtualized Operating System.
@@ -70,10 +74,16 @@ Commonly known are VirtualBox, Parallel Desktop (MacOS only) and GNOME Boxes.
 :width: 100%
 ```
 :::
-
 ::::
 
+---
+
 ### Operating-System-Level Virtualization
+
+```{epigraph}
+{.centered}
+Hardware Virtualization creates a new OS on top of an existing kernel, allowing for fast and flexible isoltation. 
+```
 
 
 {% if slide %}
@@ -106,9 +116,5 @@ They ensure that a specific isolated environment can only consume a defined amou
 The result is a Virtual Execution Environment: a lightweight, portable unit that bundles an application with all its dependencies.
 While it relies on the host kernel for execution, to the application running inside, it appears to be a fully independent operating system.
 
-
-
 {% endif %}
-
-
 

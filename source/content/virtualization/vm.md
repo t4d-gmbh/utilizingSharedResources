@@ -1,4 +1,4 @@
-### Virtual Machine (VM)
+## Virtual Machine (VM)
 
 {% if slide %}
 ```{epigraph}
