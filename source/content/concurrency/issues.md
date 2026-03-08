@@ -1,43 +1,56 @@
-## Issues \& Challenges
+## Issues & Challenges
+
+::::{grid} 1 2 2 2
+:gutter: 2
+
+:::{grid-item}
+:columns: {% if slide %}6{% else %}12{% endif %}
 
 {% if slide %}
-Concurrenct system designs offer massive potential for perfomance, but...
 
-- **concurrent computations are no longer independent** which can lead to **indeterminacy** (i.e. the output of a programm changes or the programm even stalls).
+* **Indeterminacy:** Outcomes depend on the timing of events.
+* **Execution Risks:** Incorrect outcomes, deadlocks, or process starvation.
+* **The Efficiency Gap:** Concurrency is only *potential* for efficiency.
 
-- to take advantage of this **a program must be designed for concurrency**, which can quickly become extremely challenging.
+**Engineering Challenges:**
 
-::::{admonition} Example: Race Condition
-:class: warning
+* Reliable coordination of execution.
+* Safe data exchange and memory allocation.
+* Mitigating communication overhead.
 
-:::{code-block} python
-:emphasize-lines: 3
+**Implementing overlapped operations** requires:
 
-counter = 0  # shared state
-
-counter = counter + 1  # ← both threads execute this
-:::
-
-| Expected | Actual |
-|:--------:|:------:|
-| 200,000  | ~140,000 ❌ |
-
-*Result varies with each run*
-::::
+* **Resource contention:** Shared network buffers or bandwidth limits.
+* **Memory management:** Risk of overuse.
+* **Indeterminate error handling:** Timing of failure detection altering program flow.
+* **Coordination overhead:** Signaling mechanisms (locks, semaphores).
 
 {% else %}
 
-While concurrency offers massive potential for performance, it introduces significant complexity and risk:
+While concurrency offers massive potential for performance optimization, significant complexity and risk are introduced into the software architecture.
 
-#### Indeterminacy & Complexity
-Because concurrent computations interact while executing, the number of possible execution paths can become extremely large.
-This can lead to **indeterminacy**, where the program's outcome changes based on the precise timing of events rather than just the code logic.
-In such cases a program can also produce wrong outcomes, run into a deadlock or be permanently denied the needed resources (process starvation).
+Because concurrent computations interact during execution, the number of possible execution paths becomes extremely large.
+This can lead to **indeterminacy**, where a program's outcome is dictated by the precise timing of events rather than strict code logic.
 
-::::{admonition} Example: The Lost Update Problem
-:class: warning
+Under such conditions, a program may produce incorrect computational outcomes, enter a deadlock, or be permanently denied necessary resources (process starvation), severely impacting reproducibility.
 
-Consider a simple counter incremented by two threads:
+
+
+{% endif %}
+:::
+:::{grid-item-card} The Lost Update Problem
+:columns: {% if slide %}6{% else %}12{% endif %}
+
+Example:
+
+^^^
+
+{% if page %}
+A fundamental illustration of indeterminacy is the lost update problem.
+When a shared counter is incremented by multiple threads simultaneously, the expected outcome is rarely achieved:
+{% endif %}
+
+**The non-atomic increment:** `counter = counter + 1` requires three steps: Read, Add, Write.
 
 ```python
 import threading
@@ -49,71 +62,60 @@ def increment():
     for _ in range(100000):
         counter = counter + 1  # Read, add, write
 
-# Two threads doing the same work
 t1 = threading.Thread(target=increment)
 t2 = threading.Thread(target=increment)
 t1.start(); t2.start()
 t1.join(); t2.join()
 
-print(counter)  # Expected: 200000, Actual: ???
+print(counter)  # Expected: 200000, Actual: Indeterminate
+
 ```
 
-Running this program multiple times produces different results:
-```
-Run 1: 143256
-Run 2: 158432
-Run 3: 127891
-```
+{% if page %}
 
-The line `counter = counter + 1` is not atomic; it involves three operations:  
-(1) read the current value,  
-(2) add one,  
-(3) write the result back.  
-If both threads read the same value before either writes, one update is lost. Because the exact interleaving of these operations depends on unpredictable timing, the final result changes with each execution.
+Executing this program multiple times produces varying, non-reproducible results (e.g., `143256`, `158432`, `127891`).
+
+The operation `counter = counter + 1` is not atomic; it consists of three distinct machine-level operations:
+
+1. Read the current value.
+2. Add one.
+3. Write the result back.
+
+If multiple threads read the identical value before a write operation occurs, updates are overwritten and lost. Since the exact interleaving of these operations depends on unpredictable OS scheduler timing, the final result changes with each execution.
+{% endif %}
+:::
 ::::
 
-#### The Efficiency Gap
-Concurrency only creates the *potential* for a program to run efficiently; it does not guarantee it.
-Actually designing a program to realize this efficiency is an extremely challenging engineering task.
-It entails finding reliable techniques for coordinating execution, data exchange, and memory allocation.
-Furthermore, the success depends heavily on the **type of task**: some problems are easily broken into independent pieces, while others are tightly coupled and difficult to execute concurrently without losing performance to overhead.
+{% if page %}
+### The Efficiency Gap
 
-### Example Revisited: Hidden Complexity
 
-Recall the data processing pipeline where we overlapped downloading with processing. While conceptually simple, implementing this correctly requires handling several challenges:
+Concurrency establishes the *potential* for efficient execution; it does not guarantee it.
+Designing an architecture to realize this efficiency is a highly complex engineering task.
+It necessitates the implementation of reliable techniques for execution coordination, data exchange, and memory allocation.
 
-{% if slide %}
-:::{admonition} Potential Issues
-:class: warning
-- **Shared resources:** Both downloads may compete for limited network bandwidth
-- **Memory constraints:** Loading file 2 while processing file 1 requires enough RAM for both
-- **Error handling:** What if download 2 fails during processing of file 1?
-- **Coordination:** How does the processor know when file 2 is ready?
-:::
-{% else %}
+Furthermore, success is heavily dependent on the task profile: while some problems are easily decomposed into independent units, others are tightly coupled.
+In tightly coupled scenarios, performance gains can easily be negated by the synchronization and communication overhead required to maintain data integrity.
 
-**Resource contention:**  
-If both downloads share the same network buffer or bandwidth limits, they may slow each other down, eliminating the expected speedup.
+### Hidden Complexity
 
-**Memory management:**  
-Loading dataset 2 into memory while dataset 1 is still being processed requires careful allocation. If total memory is insufficient, the system may thrash (constantly swapping data to disk), making concurrent execution *slower* than sequential.
 
-**Indeterminacy in error handling:**  
-Suppose the download of dataset 2 fails while dataset 1 is being processed. Should the program:
-- Stop processing immediately?
-- Finish processing dataset 1, then report the error?
-- Retry the download automatically?
+When implementing overlapped operations, such as simultaneous data downloading and processing, several critical architectural challenges must be addressed:
 
-The answer depends on program logic, but the *timing* of when the error is detected can lead to different outcomes (classic indeterminacy).
+* **Resource contention:** If multiple concurrent streams share the same network buffer or bandwidth limits, mutual degradation can occur, eliminating expected speedups.
+* **Memory management:** Loading secondary datasets into memory while primary datasets are actively processed requires strict allocation controls. Insufficient memory leads to thrashing (excessive data swapping to disk), rendering concurrent execution significantly slower than sequential processing.
+* **Indeterminate error handling:** If a secondary operation (e.g., a download) fails during primary processing, the resolution path is highly dependent on the exact timing of the failure detection. The logic required to halt, finish, or retry operations safely introduces complex state management.
+* **Coordination overhead:** The processing task must be notified when a secondary dataset is ready. Implementing these signaling mechanisms (using locks, semaphores, or condition variables) introduces runtime overhead that can easily negate performance benefits, especially for smaller workloads.
 
-**Coordination overhead:**  
-The processing task must somehow be notified when dataset 2 is ready. Implementing this signaling mechanism (locks, semaphores, condition variables) adds complexity and runtime overhead that can negate the performance benefits, especially for smaller datasets.
+{% endif %}
 
 :::{admonition} Key Takeaway
 :class: tip
-The data processing example seems straightforward, but implementing it correctly requires expertise in thread synchronization, resource management, and error handling. This gap between conceptual simplicity and implementation complexity is characteristic of concurrent programming.
-:::
-{% endif %}
 
+{% if slide %}
+The gap between conceptual simplicity and implementation complexity is characteristic of concurrent programming, requiring expertise in synchronization, resource management, and error handling.
+{% else %}
+While concurrent pipelines appear conceptually straightforward, implementing them correctly requires deep expertise in thread synchronization, resource management, and error handling. This gap between conceptual simplicity and implementation complexity is a fundamental characteristic of concurrent programming.
 {% endif %}
+:::
 

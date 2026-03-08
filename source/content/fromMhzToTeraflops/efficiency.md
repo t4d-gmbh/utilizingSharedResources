@@ -8,13 +8,13 @@ sd_hide_title: true
 {% if slide %}
 
 **Evolution Beyond Speed**:  
-Microprocessors have evolved not just for higher clock speeds but for increased complexity, using the "transistor budget" from Moore's Law to add efficiency-boosting features like on-chip memory (Cache) and specialized circuits long before the "Power Wall" was hit.
+Aside from higher clock speeds **microprocessors have evolved for increased complexity**, using the "transistor budget" from Moore's Law to add efficiency-boosting features like **on-chip memory (Cache)** and **specialized circuits** long before the "Power Wall" was hit.
 
 **The Power Wall & Multi-core Shift**:  
-Around 2005, physical limits forced a pivot away from raw frequency increases toward multi-core architectures, meaning single-thread performance could no longer be the sole driver of speed.
+Around 2005, physical limits forced a **pivot away from raw frequency increases toward multi-core architectures**, meaning single-thread performance could no longer be the sole driver of speed.
 
 **The Software Consequence**:  
-This shift meant that software could no longer automatically run faster on new chips; instead, programs had to be redesigned to leverage **concurrency** to unlock the full potential of modern hardware.
+This shift meant that software could no longer automatically run faster on new chips; instead, programs had to be redesigned to **leverage concurrency to unlock the full potential of modern hardware**.
 
 {% else %}
 

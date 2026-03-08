@@ -65,12 +65,13 @@ Consider a program that needs to download and process multiple large datasets:
 ::::{grid} 1 1 1 2
 :gutter: 2
 
-:::{grid-item-card} **Dataset 1:**
-- Download (30 sec)
+:::{grid-item-card} Process 1:
+- Fetch dataset 1 (30 sec)
 - Process (60 sec)
 :::
-:::{grid-item-card} **Dataset 2:**
-- Download (30 sec)
+:::{grid-item-card} Process 2:
+
+- **Fetch dataset 2 (30 sec)**
 - Process (60 sec)
 :::
 ::::
@@ -81,16 +82,16 @@ Consider a program that needs to download and process multiple large datasets:
 ::::{grid} 1 1 1 2
 :gutter: 2
 
-:::{grid-item-card} **Dataset 1:**
-- Download (30 sec)
+:::{grid-item-card} Process 1:
+- Fetch dataset (30 sec)
 - Process (60 sec)
 :::
-:::{grid-item-card} **Dataset 2:**
-- *Download during proc. 1*
+:::{grid-item-card} Process 2:
+- **Fetch dataset 2 during Process 1**
 - Process (60 sec)
 :::
-**Total: 150 seconds** (17% faster)
 ::::
+**Total: 150 seconds** (17% faster)
 :::::
 ::::::
 
