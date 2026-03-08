@@ -4,16 +4,6 @@
 ## Ensuring Reproducible and Transparent Research
 {% endif %}
 
-{% if slide %}
-**Scientific integrity requires reproducible computational work**
-
-**Why reproducibility matters:**
-- Validates scientific claims
-- Enables building on previous work
-- Facilitates collaboration and review
-- Increases research impact
-{% endif %}
-
 {% if page %}
 Computational reproducibility is the ability to obtain consistent results using the same data and code. It is fundamental to scientific integrity. However, achieving reproducibility in computational research presents substantial challenges.
 
@@ -31,27 +21,49 @@ The challenge is that achieving reproducibility requires intentional effort thro
 {% endif %}
 
 {% if build == "slides" %}
----
-{% else %}
-### Creating Reproducible Workflows
-{% endif %}
+**Scientific integrity requires reproducible computational work**
+:::::{grid} 2
+::::{grid-item-card} **Why reproducibility matters:**
+- Validates scientific claims
+- Enables building on previous work
+- Facilitates collaboration and review
+- Increases research impact
+::::
 
-:::{admonition} Reproducibility vs. Replicability
-:class: margin
-**Reproducibility**: Same results with same data/code  
-**Replicability**: Consistent findings with new data/independent study
-:::
-
-{% if slide %}
-**Many factors affect whether work can be reproduced**
+::::{grid-item-card} **Many factors affect whether work can be reproduced**
 **Best practices require effort:**
 - Automated pipelines instead of manual steps
 - Explicit parameter documentation
 - Version control for all code and scripts
 - Clear documentation of the complete workflow
-{% endif %}
+::::
+:::
+:::{grid} 2
+::::{grid-item-card} **Software and hardware environments critically affect results**
+*"It Works on My Machine"*: 
+Environment inconsistencies are a primary cause of reproducibility failures
+::::
 
-{% if page %}
+::::{grid-item-card} **Results depend on data, but sharing is complex**
+
+**Mitigation strategies:**
+
+✓ Share subsets or synthetic data  
+✓ Document data characteristics  
+✓ Provide preprocessing code  
+✓ Describe model training data properties
+::::
+:::
+{% else %}
+
+### Creating Reproducible Workflows
+
+:::::{admonition} Reproducibility vs. Replicability
+:class: margin
+**Reproducibility**: Same results with same data/code  
+**Replicability**: Consistent findings with new data/independent study
+:::::
+
 Reproducible workflows don't happen by accident. They require conscious design choices and documentation practices.
 
 ### Documentation Requirements
@@ -74,24 +86,9 @@ The structure of computational workflows affects reproducibility:
 - **Non-deterministic elements**: Some algorithms involve randomness. Without setting random seeds, results will vary between runs.
 
 Reproducible workflows favor automation, explicit configuration, and deterministic execution where possible. This requires upfront investment in infrastructure and discipline.
-{% endif %}
 
-{% if build == "slides" %}
----
-{% else %}
 ### Environment Consistency
-{% endif %}
 
-{% if slide %}
-**Software and hardware environments critically affect results**
-
-:::{admonition} "It Works on My Machine"
-:class: warning
-Environment inconsistencies are a primary cause of reproducibility failures
-:::
-{% endif %}
-
-{% if page %}
 Computational results depend not just on code and data, but on the complete software and hardware environment in which computation runs.
 
 ### Software Environment Challenges
@@ -117,26 +114,9 @@ Even with identical code and software, hardware differences can affect results:
 **GPU computing**: Different GPU models or drivers may produce subtly different results, particularly in reduced-precision operations.
 
 Perfect bit-for-bit reproducibility across all hardware is often not achievable. The goal becomes ensuring scientifically meaningful reproducibility: results that match within acceptable tolerances.
-{% endif %}
 
-{% if build == "slides" %}
----
-{% else %}
 ### Data Transparency and Availability
-{% endif %}
 
-{% if slide %}
-**Results depend on data—but sharing is complex**
-**Mitigation strategies:**
-
-✓ Share subsets or synthetic data  
-✓ Document data characteristics  
-✓ Provide preprocessing code  
-✓ Describe model training data properties
-
-{% endif %}
-
-{% if page %}
 Reproducibility requires access to the data used in computation. However, data sharing presents its own challenges.
 
 ### Data Sharing Barriers
