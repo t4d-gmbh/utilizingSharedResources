@@ -13,7 +13,6 @@ concurrency/index
 fromConcurrencyToService/index
 aaS/index
 virtualization/index
-resourceSharingPrinciple/index
 introCloud/index
 introCluster/index
 introDistributedStorage/index
