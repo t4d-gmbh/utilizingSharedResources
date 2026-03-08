@@ -2,10 +2,7 @@
 :maxdepth: {% if slide %}1{% else %}2{% endif %}
 :caption: Utilizing Shared Resources
 
-{% if side %}
-yourChallenges/index
-{% endif %}
-
+{% if slide %}yourChallenges/index{% endif %}
 challenges/index
 introComputerChips/index
 fromMhzToTeraflops/index

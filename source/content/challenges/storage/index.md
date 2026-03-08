@@ -1,6 +1,6 @@
-{% if build == "slides" %}
 # Storage Challenges
 
+{% if slide %}
 ```{toctree}
 
 ./intro
@@ -8,11 +8,7 @@
 ./data_movement
 ./large_datasets
 ```
-
 {% else %}
-
-# Storage Challenges
-
 ```{include} ./intro.md
 ```
 
@@ -24,5 +20,4 @@
 
 ```{include} ./large_datasets.md
 ```
-
 {% endif %}

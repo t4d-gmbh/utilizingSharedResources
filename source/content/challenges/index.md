@@ -1,6 +1,6 @@
-{% if slide %}
 # Challenges in Computational Projects
 
+{% if slide %}
 ```{toctree}
 :maxdepth: 3
 
@@ -10,11 +10,7 @@
 ./parallelism_challenges
 ./reproducibility_challenges
 ```
-
 {% else %}
-
-# Challenges in Computational Projects
-
 This section introduces the practical challenges when working on computational projects. 
 Understanding these challenges provides context for the tools and approaches covered in this course.
 

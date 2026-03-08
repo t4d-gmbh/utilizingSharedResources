@@ -1,6 +1,6 @@
 # What challenges did you run into?
 
-{% if build == "slides" %}
+{% if slide %}
 <!-- BUILDING THE SLIDES -->
 
 ## Share computing challenges from your projects

@@ -1,8 +1,4 @@
-{% if build == "slides" %}
-### Storage Limitations
-{% else %}
 ## Storage Limitations
-{% endif %}
 
 {% if slide %}
 **Physical and logistical constraints affect how we store and access data**
@@ -18,16 +14,18 @@
 - Determines maximum dataset size
 ::::
 :::::
-{% endif %}
+{% else %}
 
-{% if page %}
 Storage challenges arise from fundamental physical and economic constraints in how data is persisted and accessed.
 
 #### Non-volatile Storage Limitations
 
-Persistent storage, whether hard drives, SSDs, or network storage, has finite capacity. Each research group operates within allocated quotas because storage infrastructure requires physical space, power, and maintenance. High-performance storage systems that can handle concurrent access from many users are particularly expensive.
+Persistent storage, whether hard drives, SSDs, or network storage, has finite capacity.
+Each research group operates within allocated quotas because storage infrastructure requires physical space, power, and maintenance.
+High-performance storage systems that can handle concurrent access from many users are particularly expensive.
 
-Additionally, data retention policies and backup requirements effectively multiply storage needs. A dataset that occupies 1TB might require multiple TBs when accounting for backups and versioning.
+Additionally, data retention policies and backup requirements effectively multiply storage needs.
+A dataset that occupies 1TB might require multiple TBs when accounting for backups and versioning.
 
 #### Volatile Storage Constraints
 
