@@ -1,13 +1,12 @@
-{% if build == "slides" %}
-# Transparency & Reproducibility
-{% else %}
-## Ensuring Reproducible and Transparent Research
-{% endif %}
+## Transparency & Reproducibility
 
 {% if page %}
-Computational reproducibility is the ability to obtain consistent results using the same data and code. It is fundamental to scientific integrity. However, achieving reproducibility in computational research presents substantial challenges.
+Computational reproducibility is the ability to obtain consistent results using the same data and code.
+It is fundamental to scientific integrity.
+However, achieving reproducibility in computational research presents substantial challenges.
 
-Studies have shown that many published computational results cannot be reproduced, even when researchers attempt to reproduce their own work from months or years earlier. This reproducibility crisis undermines the scientific process and wastes resources.
+Studies have shown that many published computational results cannot be reproduced, even when researchers attempt to reproduce their own work from months or years earlier.
+This reproducibility crisis undermines the scientific process and wastes resources.
 
 Reproducibility serves multiple purposes:
 
@@ -20,40 +19,53 @@ Reproducibility serves multiple purposes:
 The challenge is that achieving reproducibility requires intentional effort throughout a project.
 {% endif %}
 
-{% if build == "slides" %}
+{% if slide %}
 **Scientific integrity requires reproducible computational work**
-:::::{grid} 2
+:::::{grid} 1 2 2 2
+:gutter: 2
+
 ::::{grid-item-card} **Why reproducibility matters:**
+:class: sd-m-auto
+
 - Validates scientific claims
 - Enables building on previous work
 - Facilitates collaboration and review
 - Increases research impact
 ::::
+::::{grid-item-card} Best practices require effort:
+:class: sd-m-auto
 
-::::{grid-item-card} **Many factors affect whether work can be reproduced**
-**Best practices require effort:**
+**Many factors affect whether work can be reproduced**
+
+^^^
+
 - Automated pipelines instead of manual steps
 - Explicit parameter documentation
 - Version control for all code and scripts
 - Clear documentation of the complete workflow
 ::::
-:::
-:::{grid} 2
 ::::{grid-item-card} **Software and hardware environments critically affect results**
-*"It Works on My Machine"*: 
+:class: sd-m-auto
+
+**_"It Works on My Machine"_**
+
+^^^
+
 Environment inconsistencies are a primary cause of reproducibility failures
 ::::
+::::{grid-item-card} Mitigation strategies:
+:class: sd-m-auto
 
-::::{grid-item-card} **Results depend on data, but sharing is complex**
+**Results depend on data, but sharing is complex**
 
-**Mitigation strategies:**
+^^^^
 
 ✓ Share subsets or synthetic data  
 ✓ Document data characteristics  
 ✓ Provide preprocessing code  
 ✓ Describe model training data properties
 ::::
-:::
+:::::
 {% else %}
 
 ### Creating Reproducible Workflows

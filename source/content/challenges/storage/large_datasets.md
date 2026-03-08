@@ -1,8 +1,4 @@
-{% if build == "slides" %}
 ## Working with Large Datasets
-{% else %}
-### Working with Large Datasets
-{% endif %}
 
 {% if slide %}
 **Large datasets create processing challenges**
@@ -23,29 +19,53 @@
 
 {% endif %}
 
+
+### Additional Considerations
+:::::{grid} 1 2 2 2
+
+::::{grid-item}
+:columns: {% if slide%}8{% else %}6{% endif %}
+:class: sd-m-auto
+
 {% if slide %}
-
----
-
-**Additional Considerations**
-
 - Data preprocessing becomes a significant phase
 - May need specialized formats (HDF5, Parquet, Zarr)
 - Indexing strategies become critical
 
-{% endif %}
+{% else %}
 
-{% if page %}
 Large datasets introduce challenges beyond simple storage capacity. The time required to load, parse, and validate data becomes significant. A dataset that takes an hour to load means every experimental iteration includes that overhead.
 
-When datasets exceed available RAM, processing strategies must change fundamentally. Instead of loading everything into memory, you need streaming approaches or batch processing. This increases code complexity and may limit which algorithms can be applied.
-
-Data format choices become critical at scale. Plain text formats (CSV, JSON) may be convenient for small data but become impractical at larger scales due to parsing overhead and storage inefficiency. Binary formats optimized for scientific computing ([HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format), [Parquet](https://en.wikipedia.org/wiki/Apache_Parquet), [Zarr](https://en.wikipedia.org/wiki/Zarr_(data_format))) provide better performance but add complexity.
-
-Effective indexing strategies can make the difference between practical and impractical workflows. Without proper indexing, finding specific subsets of data requires scanning the entire dataset.
 {% endif %}
+::::
+::::{grid-item}
+:columns: {% if slide%}4{% else %}6{% endif %}
+:class: sd-m-auto
 
 :::{admonition} Indexing
-:class: margin
+:class: tip
+{% if slide %}
+Use technologies that **enable fast lookup and retrieval** without having to scan an entire dataset.
+{% else %}
 Creating data structures that enable fast lookup and retrieval of specific subsets without scanning the entire dataset. Similar to a book index that lets you jump directly to relevant pages.
+{% endif %}
 :::
+
+::::
+:::::
+
+{% if page %}
+
+When datasets exceed available RAM, processing strategies must change fundamentally.
+Instead of loading everything into memory, you need streaming approaches or batch processing.
+This increases code complexity and may limit which algorithms can be applied.
+
+Data format choices become critical at scale.
+Plain text formats (CSV, JSON) may be convenient for small data but become impractical at larger scales due to parsing overhead and storage inefficiency.
+Binary formats optimized for scientific computing ([HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format), [Parquet](https://en.wikipedia.org/wiki/Apache_Parquet), [Zarr](https://en.wikipedia.org/wiki/Zarr_(data_format))) provide better performance but add complexity.
+
+Effective indexing strategies can make the difference between practical and impractical workflows.
+Without proper indexing, finding specific subsets of data requires scanning the entire dataset.
+
+{% endif %}
+

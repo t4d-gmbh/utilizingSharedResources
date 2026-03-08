@@ -1,25 +1,29 @@
-{% if build == "slides" %}
-# Task Multiplicity & Parallelism
-{% else %}
-## Managing Multiple Tasks and Parallel Execution
-{% endif %}
+## Task Multiplicity & Parallelism
 
 {% if slide %}
-::::{tab-set}
-:::{tab-item} Common Patterns
+::::{grid} 1 2 2 2
+:gutter: 2
+
+:::{grid-item-card} Common Patterns
+:class: sd-m-auto
+
 - Same analysis, multiple datasets
 - Parameter sweeps
 - Ensemble simulations
 - Independent pipeline stages
 :::
+:::{grid-item-card} The Challenge
+:class: sd-m-auto
 
-:::{tab-item} The Challenge
 - Manual execution doesn't scale
 - Task dependencies need coordination
 - Resource allocation optimization
 :::
 ::::
 {% endif %}
+
+
+{% if page %}
 
 :::{admonition} Ensemble Learning
 :class: margin
@@ -28,7 +32,6 @@
 **Boosting**: reduces bias by sequentially training models with increased weights of misclassified data points in subsequent models (AdaBoost, XGBoost, Gradient Boosting, etc.).
 :::
 
-{% if page %}
 Scientific computing frequently involves not just one computation, but many related computations. This task multiplicity arises naturally from the scientific method: testing multiple hypotheses, exploring parameter spaces, validating across different datasets, or running ensemble simulations.
 
 ### Sources of Task Multiplicity
@@ -43,13 +46,9 @@ Task multiplicity appears in several forms:
 Manual execution of multiple tasks quickly becomes impractical. Managing dozens or hundreds of related computations by hand is error-prone and inefficient.
 {% endif %}
 
-{% if build == "slides" %}
----
-{% else %}
-### Enabling and Exploiting Parallelism
-{% endif %}
 
 {% if slide %}
+
 :::::{grid} 2
 ::::{grid-item-card} ✓ Opportunity
 - Idle cores await tasks
@@ -65,14 +64,15 @@ Manual execution of multiple tasks quickly becomes impractical. Managing dozens 
 :::::
 
 **Parallelism Types:** Embarrassingly parallel → Shared memory → Distributed
-{% endif %}
+{% else %}
+
+### Enabling and Exploiting Parallelism
 
 :::{admonition} Simultaneously vs. Concurrently
 :class: margin
 Both terms mean *"at the same time,"* but **simultaneously** implies happening at the exact same instant, while **concurrently** suggests overlapping in time, often referring to parallel, coordinated, or extended processes. 
 :::
 
-{% if page %}
 Modern computing systems provide substantial parallel capacity through multiple CPU cores, multiple machines, and specialized architectures. However, exploiting this capacity requires that code and algorithms are designed for parallelism.
 
 ### Why Parallelism Is Challenging
@@ -106,12 +106,6 @@ Different types of parallelism have different complexity levels:
 Each level introduces more complexity but potentially enables larger-scale computation.
 {% endif %}
 
-{% if build == "slides" %}
----
-{% else %}
-### Data and Workflow Management in Parallel Environments
-{% endif %}
-
 {% if slide %}
 :::::{grid} 2
 ::::{grid-item}
@@ -132,9 +126,10 @@ Each level introduces more complexity but potentially enables larger-scale compu
 - Progress tracking
 ::::
 :::::
-{% endif %}
+{% else %}
 
-{% if page %}
+### Data and Workflow Management in Parallel Environments
+
 Parallel execution introduces significant data management challenges that don't exist in sequential computation.
 
 ### Race Conditions and Conflicts
