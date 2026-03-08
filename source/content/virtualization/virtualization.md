@@ -43,9 +43,9 @@ _Adapted from <https://en.wikipedia.org/wiki/File:Hyperviseur.svg>_
 
 {% if slide %}
 
-**Type 1 Hipervisor**: Acts as (host) OS.
+**Type 1 Hypervisor**: Acts as (host) OS.
 
-**Type 2 Hipervisor**: Runs as application in a (host) OS.
+**Type 2 Hypervisor**: Runs as application in a (host) OS.
 
 {% else %}
 
