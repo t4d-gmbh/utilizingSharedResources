@@ -54,7 +54,7 @@ In Block Storage, Ceph splits up a block into fixed-size junks (e.g., 4MB) that 
 
 ```{image} ./../_static/blockStorage.png
 :alt: BlockStorage
-:width: 100%
+:width: 50%
 ```
 
 :::
@@ -64,7 +64,6 @@ In Block Storage, Ceph splits up a block into fixed-size junks (e.g., 4MB) that 
 #### Usage
 
 {% if slide %}
-{.smaller}
 - Attach the volume (i.e. block) via GUI/SDK
 - Partition it `parted /dev/sdX mklabel gpt`
 - Cerate a filesystem `mkfs.ext4 -L mylabel /dev/sdxY`

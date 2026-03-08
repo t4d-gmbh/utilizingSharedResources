@@ -57,7 +57,7 @@ In Object Storage, Ceph treats each file as a discrete "object" that tightly bun
 
 ```{image} ./../_static/objectStorage.png
 :alt: BlockStorage
-:width: 100%
+:width: 50%
 ```
 
 :::
@@ -72,7 +72,6 @@ These objects are then mapped via a hashing algorithm and distributed in a redun
 
 #### Usage{% if slide %} (e.g. with `mc`)
 
-{.smaller}
 - Setup `mc alias set mym https://storage.cloud:9000 A_KEY S_KEY`
 - Create a bucket `mc mb mym/myb`
 - Add data: `mc cp myds.csv mym/myb/myds.csv`

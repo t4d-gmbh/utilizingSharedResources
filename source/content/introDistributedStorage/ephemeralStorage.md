@@ -67,7 +67,7 @@ Local Ephemeral physically resides inside the compute node's chassis (Direct Att
 
 ```{image} ./../_static/ephemeralStorage.png
 :alt: ephemeralStorage
-:width: 100%
+:width: 50%
 
 ```
 
@@ -77,8 +77,6 @@ Local Ephemeral physically resides inside the compute node's chassis (Direct Att
 #### Usage
 
 {% if slide %}
-{.smaller}
-
 * Request local storage via scheduler (e.g., Slurm: `--tmp=100G`).
 * Point application cache to `$TMPDIR`.
 * Stage large shared datasets to `/scratch/`.

@@ -54,7 +54,7 @@ This separation allows the directory structure to scale and prevents the system 
 
 ```{image} ./../_static/sharedFilysystem.png
 :alt: SharedFilesystem
-:width: 100%
+:width: 50%
 
 ```
 
@@ -63,10 +63,7 @@ This separation allows the directory structure to scale and prevents the system 
 
 #### Usage
 {% if slide %}
-{.smaller}
 _Mostly provisioned a priori_  
-
-{.smaller}
 * Provision a share (e.g., via OpenStack Manila).
 * Configure network access rules (IPs or CephX).
 * Mount the share locally: `mount -t ceph 10.0.0.1:6789:/ /mnt/cephfs -o name=client.myclient,secret=mySecret`
