@@ -1,11 +1,11 @@
 ```{toctree}
-:maxdepth: {% if build == "slides" %}1{% else %}2{% endif %}
+:maxdepth: {% if slide %}1{% else %}2{% endif %}
 :caption: Utilizing Shared Resources
 
-{% if build == "slides" %}
-
+{% if side %}
 yourChallenges/index
 {% endif %}
+
 challenges/index
 introComputerChips/index
 fromMhzToTeraflops/index

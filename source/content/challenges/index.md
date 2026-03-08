@@ -1,4 +1,4 @@
-{% if build == "slides" %}
+{% if slide %}
 # Challenges in Computational Projects
 
 ```{toctree}
