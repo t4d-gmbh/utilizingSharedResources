@@ -14,6 +14,7 @@ Simply toss in your data, neither worry about size nor file counts.
 ```{compound}
 {.centered}
 A REST API for data.
+
 ```
 
 {% else %}
@@ -31,8 +32,6 @@ It is a repository for raw logs, images, and archives that must be accessible fr
 
 {% endif %}
 
-
-
 ::::{grid}
 :gutter: 2
 
@@ -41,25 +40,20 @@ It is a repository for raw logs, images, and archives that must be accessible fr
 :columns: 6
 :class: sd-m-auto
 
-
 Object Storage is handled by a storage cluster, connecting multiple storage devices (computers) together as a single unit.
 A common, open-source software that can create a storage cluster for Object Storage on top of connected computers is [Ceph](https://ceph.io).
 In Object Storage, Ceph treats each file as a discrete "object" that tightly bundles the raw binary payload together with custom, searchable metadata and a globally unique identifier (URI).
-
 {% endif %}
-
-
-
 :::
 :::{grid-item}
 :columns: {% if page %}6{% else %}12{% endif %}
 :class: sd-m-auto
 
 ```{image} ./../_static/objectStorage.png
-:alt: BlockStorage
-:width: 50%
+:align: center
+:alt: ObjectStorage
+:width: {% if slide %}80%{% else %}100%{% endif %}
 ```
-
 :::
 ::::
 
@@ -67,32 +61,39 @@ In Object Storage, Ceph treats each file as a discrete "object" that tightly bun
 
 These objects are then mapped via a hashing algorithm and distributed in a redundant manner (usually 3 copies of each object) across the physical disks in the storage cluster.
 
-{% endif %}
+
+#### Usage
+
+:::::{grid}
+:gutter: 2
+
+::::{grid-item}
+:columns: 5
+:class: sd-m-auto
+
+In an OpenStack cloud, Object Storage is typically managed by an application called *Swift* (though many deployments use Ceph's RADOS Gateway for added S3 compatibility).
+When a bucket or object is requested, a specialized API server acting as the gateway (such as the Ceph RADOS Gateway daemon or the OpenStack Swift proxy) intercepts the connection.
 
 
-#### Usage{% if slide %} (e.g. with `mc`)
+::::
+::::{grid-item}
+:columns: 7
+:class: sd-m-auto
+
+:::{admonition} `mc` ([MinIO Client](http://mindev.org/minio-mc.html)) Example
+:class: tip
+
+Creating a new bucket and copy a file there using the open-source MinIO Client:
 
 - Setup `mc alias set mym https://storage.cloud:9000 A_KEY S_KEY`
 - Create a bucket `mc mb mym/myb`
 - Add data: `mc cp myds.csv mym/myb/myds.csv`
 - Retrieve data: `mc cp mym/myb/myds.csv`
-
-{% else %}
-
-In an OpenStack cloud, Object Storage is typically managed by an application called *Swift* (though many deployments use Ceph's RADOS Gateway for added S3 compatibility).
-When a bucket or object is requested, a specialized API server acting as the gateway (such as the Ceph RADOS Gateway daemon or the OpenStack Swift proxy) intercepts the connection.
-This gateway manages the namespace, which is the flat, globally unique mapping of bucket names and object URLs (e.g., `https://storage.cloud/mybucket/mydata/dataset.csv`), authenticates the provided API keys, and translates the HTTP REST commands into the underlying storage cluster's protocol.
-
-:::{admonition} `mc` ([MinIO Client](http://mindev.org/minio-mc.html)) Example
-:class: margin tip
-Creating a new bucket and copy a file there using the open-source MinIO Client:
-
-```bash
-mc alias set mym https://storage.cloud:9000 A_KEY S_KEY
-mc mb myb
-mc cp dset.csv mym/myb/dset.cvs
-```
 :::
+::::
+:::::
+
+This gateway manages the namespace, which is the flat, globally unique mapping of bucket names and object URLs (e.g., `https://storage.cloud/mybucket/mydata/dataset.csv`), authenticates the provided API keys, and translates the HTTP REST commands into the underlying storage cluster's protocol.
 
 A machine interfaces directly with Object Storage via HTTP REST APIs over the network.
 In any environment, this is usually done using modern, open-source command-line clients (like `mc` or `rclone`) or directly within application code using dedicated libraries (like Python's `boto3` or `s3fs`).

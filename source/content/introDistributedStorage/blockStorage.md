@@ -13,6 +13,7 @@ Think of Block Storage as a raw, unformatted USB drive that is plugged permanent
 ```{compound}
 {.centered}
 Exclusive, highly compatible virtual hard drive for fast I/O.
+
 ```
 {% else %}
 
@@ -28,8 +29,6 @@ This exclusivity allows for fast and low-latency access, making it the perfect h
 
 {% endif %}
 
-
-
 ::::{grid}
 :gutter: 2
 
@@ -38,52 +37,59 @@ This exclusivity allows for fast and low-latency access, making it the perfect h
 :columns: 6
 :class: sd-m-auto
 
-
-
 Block Storage is handled by a storage cluster, connecting multiple storage devices (computer) together as a single unit.
 A common, open-source software that can create a storage cluster on top of connected computers is [Ceph](https://ceph.io).
 In Block Storage, Ceph splits up a block into fixed-size junks (e.g., 4MB) that are then distributed in a redundant manner (usually 3 copies of each block) across the physical disks in the storage cluster.
-
-{% endif %}
-
-
 :::
+{% endif %}
 :::{grid-item}
-:columns: {% if page %}6{% else %}12{% endif %}
 :class: sd-m-auto
 
 ```{image} ./../_static/blockStorage.png
+:align: center
 :alt: BlockStorage
-:width: 50%
+:width: {% if slide %}80%{% else %}100%{% endif %}
 ```
-
 :::
 ::::
 
+{% if page %}
 
 #### Usage
 
-{% if slide %}
-- Attach the volume (i.e. block) via GUI/SDK
-- Partition it `parted /dev/sdX mklabel gpt`
-- Cerate a filesystem `mkfs.ext4 -L mylabel /dev/sdxY`
-- Mount the filesystem `mount /dev/sdxY /mnt/mydisk`
+:::::{grid}
+:gutter: 2
 
-{% else %}
+::::{grid-item}
+:columns: 5
+:class: sd-m-auto
 
 In a OpenStack cloud, Block Storage is managed by an application called _Cinder_.
 When a volume is requested, Cinder talks to the backend (like Ceph) to reserve the blocks and attaches them to to the target VM via iSCSI or KVM virtio.
 
-:::{admonition} `rbd` Example
-:class: margin tip
-Creating a new block:
-```
-rbd create mydisk --size 100G
-```
-:::
-
 A machine, virtual or not, can also interface directly with a Ceph Block Storage via a kernel module called `rbd`.
+
+::::
+::::{grid-item}
+:columns: 7
+:class: sd-m-auto
+
+:::{admonition} `rbd` Example
+:class: tip
+- Creating a new block:
+  ```
+  rbd create mydisk --size 100G
+  ```
+- Attach the volume (i.e. block) via GUI/SDK
+- Partition it `parted /dev/sdX mklabel gpt`
+- Cerate a filesystem `mkfs.ext4 -L mylabel /dev/sdxY`
+- Mount the filesystem `mount /dev/sdxY /mnt/mydisk`
+:::
+::::
+:::::
+
 In a virtualized environment this can be done directly from a VM or, if access allows it, on the Hypervisor which can then "present" the block storage to the VM as a physical disk.
+
 In practice, attaching a block storage via Cinder, the Hypervisor or directly on the VM using `rbd` should show little to not difference in terms of performance.
 
 Once a block is added to a machine, it becomes visible as a device (e.g. under `/dev/sdX`).

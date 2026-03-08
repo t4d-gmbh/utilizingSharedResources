@@ -44,37 +44,43 @@ It seamlessly handles file locking and permissions to allow collaboration withou
 The system splits responsibilities into two distinct layers.
 Metadata Servers (MDS) handle the directory tree (inodes, permissions, file names, and locking operations), while the actual binary file data is distributed across standard data storage nodes (like Ceph OSDs).
 This separation allows the directory structure to scale and prevents the system from bottlenecking when hundreds of compute nodes request file paths simultaneously.
-
 {% endif %}
-
 :::
 :::{grid-item}
 :columns: {% if page %}6{% else %}12{% endif %}
 :class: sd-m-auto
 
 ```{image} ./../_static/sharedFilysystem.png
+:align: center
 :alt: SharedFilesystem
-:width: 50%
-
+:width: {% if slide %}60%{% else %}100%{% endif %}
 ```
-
 :::
 ::::
 
-#### Usage
-{% if slide %}
-_Mostly provisioned a priori_  
-* Provision a share (e.g., via OpenStack Manila).
-* Configure network access rules (IPs or CephX).
-* Mount the share locally: `mount -t ceph 10.0.0.1:6789:/ /mnt/cephfs -o name=client.myclient,secret=mySecret`
+{% if page %}
 
-{% else %}
+#### Usage
+
+:::::{grid}
+:gutter: 2
+
+::::{grid-item}
+:columns: 5
+:class: sd-m-auto
 
 In most cases, Shared Filesystems are provisioned centrally by administrators and will appear "just like a normal folder" (e.g., `/home` or `/scratch`).
 However, if you are provisioning one dynamically in a cloud environment (like OpenStack), it is typically managed by a service called _Manila_. Manila creates the share and provides a network endpoint (usually via NFS or CephFS protocols).
 
+::::
+::::{grid-item}
+:columns: 7
+:class: sd-m-auto
+
+
 :::{admonition} `mount` Example
-:class: margin tip
+:class: tip
+
 Mounting a share to a local directory:
 
 ```bash
@@ -82,7 +88,14 @@ mkdir -p /mnt/mycfs
 mount -t ceph 10.0.0.1:6789:/ /mnt/mycfs -o name=client.myclient,secret=mySecret
 ```
 
+_Mostly provisioned a priori_  
+
+* Provision a share (e.g., via OpenStack Manila).
+* Configure network access rules (IPs or CephX).
+* Mount the share locally: `mount -t ceph 10.0.0.1:6789:/ /mnt/cephfs -o name=client.myclient,secret=mySecret`
 :::
+::::
+:::::
 
 To connect, the compute node or VM must mount this endpoint over the network. The operating system kernel handles the translation, mapping the remote directory tree to a local mount point (like `/mnt/shared_data`). From that point forward, any application reading or writing to that directory is actually communicating over the network to the central storage cluster.
 

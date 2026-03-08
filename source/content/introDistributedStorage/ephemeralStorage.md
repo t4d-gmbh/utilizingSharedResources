@@ -62,32 +62,57 @@ Local Ephemeral physically resides inside the compute node's chassis (Direct Att
 
 :::
 :::{grid-item}
-:columns: {% if page %}6{% else %}12{% endif %}
 :class: sd-m-auto
 
 ```{image} ./../_static/ephemeralStorage.png
+:align: center
 :alt: ephemeralStorage
-:width: 50%
+:width: {% if slide %}80%{% else %}100%{% endif %}
 
 ```
-
 :::
 ::::
 
+{% if page %}
+
 #### Usage
 
-{% if slide %}
+
+:::::{grid}
+:gutter: 2
+
+::::{grid-item}
+:columns: 5
+:class: sd-m-auto
+
+Interacting with Ephemeral Storage depends entirely on whether you are using the Local or Global variant.
+
+For **Global Scratch**, access feels identical to a standard shared network drive.
+The path is typically a well-known mount point, such as `/scratch/` or `/lustre/scratch`.
+Users manually copy (stage) their heavy datasets to this location before executing a distributed job.
+
+::::
+::::{grid-item}
+:columns: 7
+:class: sd-m-auto
+
+:::{admonition} `slurm` Example
+:class: tip
 * Request local storage via scheduler (e.g., Slurm: `--tmp=100G`).
 * Point application cache to `$TMPDIR`.
 * Stage large shared datasets to `/scratch/`.
 * **Move results to permanent storage before they are purged!**
-{% else %}
+:::
+::::
+:::::
 
-Interacting with Ephemeral Storage depends entirely on whether you are using the Local or Global variant.
+The critical operational rule here is memory: users *must* script their workflows to copy the final output data back to persistent storage (like S3 or their Home Directory) before the automated purge scripts permanently delete it.
 
-For **Global Scratch**, access feels identical to a standard shared network drive. The path is typically a well-known mount point, such as `/scratch/` or `/lustre/scratch`. Users manually copy (stage) their heavy datasets to this location before executing a distributed job. The critical operational rule here is memory: users *must* script their workflows to copy the final output data back to persistent storage (like S3 or their Home Directory) before the automated purge scripts permanently delete it.
-
-For **Local Scratch**, the workflow is highly dynamic and usually managed by the workload scheduler (like Slurm). When a compute job starts, the scheduler creates a private, temporary folder on the node's physical NVMe drive. It exposes this path to your script via an environment variable (most commonly `$TMPDIR`). Applications and scripts should be configured to write their temporary files, cache, or RAM-spillover to this variable. The exact millisecond the job completes or fails, the scheduler forcefully runs `rm -rf` on that directory, isolating your data from the next user.
+For **Local Scratch**, the workflow is highly dynamic and usually managed by the workload scheduler (like Slurm).
+When a compute job starts, the scheduler creates a private, temporary folder on the node's physical NVMe drive.
+It exposes this path to your script via an environment variable (most commonly `$TMPDIR`).
+Applications and scripts should be configured to write their temporary files, cache, or RAM-spillover to this variable.
+The exact millisecond the job completes or fails, the scheduler forcefully runs `rm -rf` on that directory, isolating your data from the next user.
 
 {% endif %}
 
